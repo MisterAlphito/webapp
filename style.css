@@ -1,9 +1,10 @@
 body {
-    
+   text-align: center; 
 }
 
 p, ul {
     font-family: Helvetica;
-    margin-right: 500px;
+    margin-right: 300px;
+    margin-left: 300px;
     font-size: 25px;
 }
