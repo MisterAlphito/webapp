@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Helvetica, sans-serif;
     margin: 0;
     padding: 20px;
     background-color: #eaeaea;
@@ -7,10 +7,12 @@ body {
 }
 header {
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    margin-top: 25px;
+    margin-left: 10px;
 }
 h1 {
-    font-size: 2.5em;
+    font-size: 2.2em;
     color: #2c3e50;
     margin: 0;
 }
@@ -66,4 +68,11 @@ th {
 .cross {
     color: red;
     font-size: 1.5em;
+}
+
+.title1 {
+    font-size: 2.2em;
+    color: #2c3e50;
+    margin: 0;
+    font-weight: bold;
 }
