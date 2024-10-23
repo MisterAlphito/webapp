@@ -1,0 +1,10 @@
+body {
+   text-align: center; 
+}
+
+h1, ul {
+    font-family: Helvetica;
+    margin-right: 300px;
+    margin-left: 300px;
+    font-size: 25px;
+}
