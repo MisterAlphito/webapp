@@ -1,0 +1,136 @@
+@import url('fonts.css');
+
+body {
+    background-color: #20201d;
+    margin: 0;
+    padding: 0;
+    font-family: 'Albert Sans';
+    height: 100em; /* Asegura que el body ocupe toda la altura */
+    overflow: auto; /* Para evitar desplazamiento innecesario */
+}
+
+/* Caja principal */
+.container {
+    position: relative; /* Posición absoluta para ocupar la mitad izquierda */
+    top: 0;
+    left: 0;
+    width: 50vw; /* Ocupa el 50% del ancho de la pantalla */
+    height: auto; /* Permite que la altura del contenedor se ajuste al contenido */
+    min-height: 100vh; /* Asegura que siempre ocupe al menos el 100% de la altura */
+    background-color: #b2ddee; /* Fondo blanco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-y: auto; /* Permite hacer scroll solo si el contenido excede la altura */
+}
+
+/* Borde cuadrado en el centro */
+.border-box {
+    width: 80%; /* Ancho del borde cuadrado */
+    height: 80%; /* Alto del borde cuadrado */
+    border: 2px solid #ffffff; /* Borde cuadrado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar el borde */
+}
+
+        /* Borde interno (más cercano al contenido) */
+        .border-box::before {
+            content: "";
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            border: 2px solid #ffffff; /* Primer borde */
+            z-index: 1; /* Establecemos el orden */
+        }
+
+
+/* Estilo del texto dentro del borde */
+.content {
+    text-align: center;
+    color: #333333; /* Color de texto oscuro */
+    margin: 4em;
+}
+
+.content h1 {
+    font-family: 'Albert Sans';
+    font-weight: 900;
+    font-size: 5em;
+    margin-bottom: 10px;
+    color: #062324; /* Color suave para el titular */
+}
+
+.content p {
+    font-family: 'Albert Sans';
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #062324; /* Color suave para el párrafo */
+    line-height: 1.6;
+}
+
+/* Estilos generales */
+
+    /* Estilo del botón de hamburguesa */
+    .menu-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 10;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 25px;
+    }
+
+    .menu-icon div {
+        width: 30px;
+        height: 5px;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    /* Contenedor del menú */
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -50%; /* Inicialmente fuera de la pantalla */
+        width: 50%; /* Ocupa la mitad de la pantalla */
+        height: 100%;
+        background-color: rgb(255, 228, 75); /* Color dorado */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.3s ease; /* Animación suave para el menú */
+        box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu a {
+        font-family: 'Albert Sans';
+        font-weight: 100 !important;
+        text-decoration: none;
+        color: black;
+        font-size: 2.5em;
+        margin: 15px 0;
+        margin-top: 50px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+        color: #333;
+    }
+
+    /* Estado del menú cuando se activa */
+    .menu.open {
+        right: 0;
+    }
