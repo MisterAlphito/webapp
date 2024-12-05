@@ -1,57 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <link rel="icon" href="./imgs/favicon.svg" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="icon" href="./imgs/favicon.svg" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Awards</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400&display=swap" rel="stylesheet">
-            
-</head>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-
-
+  <body>
     <div class="container">
-        <div class="border-box">
-            <div class="content">
-                <h1>Diseñador multidisciplianr</h1>
-                <p>Este es un texto dentro del borde cuadrado. Puedes personalizar el contenido para que se ajuste a tus necesidades. El diseño utiliza colores planos y tiene un estilo limpio y elegante.</p>
-            </div>
+      <div class="border-box">
+        <div class="content">
+          <h1>Diseñador</h1>
+          <h1>Ilustrador</h1>
+          <h1>Motion Graphics</h1>
+          <br />
         </div>
-
+      </div>
     </div>
 
+    <!-- Botón de hamburguesa -->
+    <div class="menu-icon" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
 
-<!-- Botón de hamburguesa -->
-<div class="menu-icon" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-</div>
+    <!-- Menú -->
+    <div class="menu" id="menu">
+      <a href="#">Dovus V</a>
+      <a href="#">Dibujo</a>
+      <a href="#">Ilustración digital</a>
+      <a href="#">Maquetación</a>
+      <a href="#">Motion graphics</a>
+    </div>
 
-<!-- Menú -->
-<div class="menu" id="menu">
-    <a href="#">Dovus V</a>
-    <a href="#">Dibujo</a>
-    <a href="#">Ilustración digital</a>
-    <a href="#">Maquetación</a>
-    <a href="#">Motion graphics</a>
-</div>
+    <div class="cortinilla">
+      <div class="imagenes">
+        <div class="imagen">
+          <img
+            src="https://ik.imagekit.io/bnkcab5v4/mockup-1.jpg"
+            alt="Imagen 1"
+          />
+        </div>
+        <div class="imagen">
+          <img
+            src="https://ik.imagekit.io/bnkcab5v4/muhleim_medieval_2_final.jpg"
+            alt="Imagen 2"
+          />
+        </div>
+        <div class="imagen">
+          <img
+            src="https://ik.imagekit.io/bnkcab5v4/carteles_mossom_1.png?updatedAt=1733426258592"
+            alt="Imagen 3"
+          />
+        </div>
+        <div class="imagen">
+          <img
+            src="https://ik.imagekit.io/bnkcab5v4/tamborilero_sombrero_final.jpg?updatedAt=1733426221678"
+            alt="Imagen 4"
+          />
+        </div>
+        <div class="imagen">
+          <img
+            src="https://ik.imagekit.io/bnkcab5v4/mockup-1.jpg"
+            alt="Imagen 5"
+          />
+        </div>
+        <!-- Duplicamos la primera imagen para que la transición sea seamless -->
+        <div class="imagen">
+          <img
+            src="https://ik.imagekit.io/bnkcab5v4/mockup-1.jpg"
+            alt="Imagen 5"
+          />
+        </div>
+      </div>
+    </div>
 
-<script>
-    // Función para abrir y cerrar el menú
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        menu.classList.toggle('open');
-    }
-</script>
-
-</body>
-
+    <script src="scripts.js"></script>
+  </body>
 </html>
