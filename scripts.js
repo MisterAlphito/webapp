@@ -28,3 +28,18 @@ function toggleMenu() {
   const menu = document.getElementById("menu");
   menu.classList.toggle("open");
 }
+
+// Función para manejar el desplazamiento y mostrar/ocultar el elemento
+window.addEventListener("scroll", () => {
+  const placeholder = document.querySelector(".placeholder");
+  const scrollPosition = window.scrollY;
+
+  // Verificar si el desplazamiento está dentro del rango
+  if (scrollPosition >= 1000 && scrollPosition <= 2600) {
+    placeholder.style.transition = "transform 2s ease-in-out";
+    placeholder.style.transform = "translate(70%, -50%)"; // Mueve al centro de la pantalla
+  } else {
+    placeholder.style.transition = "transform 2s ease-in-out";
+    placeholder.style.transform = "translate(120%, -50%)"; // Mueve al centro de la pantalla
+  }
+});

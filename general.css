@@ -11,6 +11,36 @@ body {
   flex-direction: column; /* Alinea los elementos de forma horizontal */
 }
 
+/* Estilo del contenedor */
+.placeholder {
+  height: fit-content;
+  width: fit-content;
+  position: fixed;
+  position: fixed; /* Asegura que la posición sea relativa a la ventana */
+  top: 50%; /* Centra verticalmente */
+  right: 0; /* Posición fuera de la pantalla a la derecha */
+  transform: translate(120%, -50%); /* Posición inicial fuera de la pantalla */
+  transition: transform 2s ease-in-out; /* Transición suave */
+  z-index: 30;
+}
+
+.placeholder img {
+  width: 45%;
+  height: auto;
+  z-index: inherit;
+}
+
+.logo {
+  font-family: "Denton", sans-serif !important; /* Fuente */
+  font-size: 4em !important; /* Tamaño del texto */
+  font-weight: 100 !important; /* Texto en negrita */
+  color: #062324; /* Color del texto */
+  margin: 150px; /* Espaciado interno */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  overflow: hidden; /* Opcional: oculta cualquier contenido que se salga del contenedor */
+  text-overflow: ellipsis; /* Opcional: muestra "..." si el texto es demasiado largo */
+}
+
 .main-container {
   display: flex;
   flex-direction: row; /* Los elementos estarán en fila por defecto */
@@ -27,11 +57,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 /* Caja principal Right */
-.container-r {
+.container-l {
   position: relative;
   width: 50%; /* Ocupa el 100% del ancho de la pantalla */
   height: 100vh; /* Ajusta la altura según lo necesario */
@@ -44,11 +74,37 @@ body {
   top: 0;
 }
 
+/* Caja principal Left */
+.container-wide {
+  position: relative;
+  width: 100%; /* Ocupa el 100% del ancho de la pantalla */
+  height: 50vh; /* Ajusta la altura según lo necesario */
+  background-color: #b2ddee; /* Fondo azul claro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+/* Caja principal Right */
+.container-l-wide {
+  position: relative;
+  width: 100%; /* Ocupa el 100% del ancho de la pantalla */
+  height: 50vh; /* Ajusta la altura según lo necesario */
+  background-color: #e2bd79; /* Fondo azul claro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: clip;
+  right: 0;
+  top: 0;
+}
+
 /* Borde cuadrado en el centro */
 .border-box {
   width: 80%;
   height: 80%;
-  border: 2px solid #ffffff;
+  border: 2px solid #062324;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,32 +118,34 @@ body {
 .border-box::before {
   content: "";
   position: absolute;
-  top: 16px;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  border: 2px solid #ffffff;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px solid #062324;
   z-index: 1;
 }
 
-/* Estilo del texto dentro del borde */
+/* Contenedor principal */
 .content {
+  display: flex; /* Flexbox para alinear los spans en hilera por defecto */
+  justify-content: center; /* Opcional: distribuye spans de forma central */
+  align-items: center; /* Alinea los spans verticalmente en el centro */
   text-align: center;
   color: #333333;
-  margin: 4em;
+  flex-wrap: nowrap; /* Evita que los spans se rompan en varias líneas */
 }
 
-.content h1 {
+/* Estilo del texto */
+.content span {
   font-family: "Albert Sans";
-  font-weight: 900;
-  font-size: clamp(
-    2rem,
-    1vw + 1rem,
-    5em
-  ); /* Ajuste de tamaño de fuente adaptable */
-  margin-bottom: 10px;
-  line-height: 100%;
+  font-weight: 500;
+  font-size: clamp(2em, 7.5vw, 4em); /* Tamaño adaptativo del texto */
+  line-height: 235%; /* Ajusta la altura de línea */
   color: #062324;
+  white-space: nowrap; /* Mantiene el texto en una sola línea */
+  margin-left: 60px; /* Restablece márgenes por defecto */
+  margin-right: 60px;
 }
 
 .content p {
@@ -103,23 +161,25 @@ body {
 
 /* Estilo del botón de hamburguesa */
 .menu-icon {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 10;
+  z-index: 15;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
   height: 25px;
+  padding: 18px;
 }
 
 .menu-icon div {
   width: 30px;
   height: 5px;
-  background-color: #fff;
+  background-color: #062324;
   border-radius: 5px;
+  z-index: 10;
 }
 
 /* Contenedor del menú */
@@ -136,11 +196,12 @@ body {
   justify-content: center;
   transition: right 0.3s ease;
   box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 
 .menu a {
   font-family: "Albert Sans";
-  font-weight: 100 !important;
+  font-weight: 500 !important;
   text-decoration: none;
   color: black;
   font-size: clamp(
@@ -196,25 +257,31 @@ body {
 }
 
 /* Breakpoint para pantallas pequeñas */
-@media (max-width: 768px) {
+@media (max-width: 1400px) {
   body {
     flex-direction: column; /* Cambia la dirección a columna */
   }
 
   .container,
-  .container-r,
+  .container-l,
+  .container-wide,
+  .container-l-wide,
   .cortinilla {
     width: 100%; /* Ocupa todo el ancho de la pantalla */
     height: 100vh; /* Ajusta la altura según el contenido */
   }
-
   .menu {
     width: 100%; /* Ocupa el 100% de la pantalla */
     right: -100%; /* Inicialmente fuera de la pantalla */
     transition: right 0.3s ease;
   }
-
   .menu.open {
     right: 0; /* Muestra el menú al abrirlo */
+  }
+}
+
+@media (max-width: 1400px) {
+  .content {
+    flex-direction: column; /* Cambia la dirección a vertical */
   }
 }
