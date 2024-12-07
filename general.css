@@ -20,7 +20,7 @@ body {
   top: 50%; /* Centra verticalmente */
   right: 0; /* Posición fuera de la pantalla a la derecha */
   transform: translate(120%, -50%); /* Posición inicial fuera de la pantalla */
-  transition: transform 2s ease-in-out; /* Transición suave */
+  transition: transform 0.5s ease-in-out; /* Transición suave */
   z-index: 30;
 }
 
@@ -140,12 +140,12 @@ body {
 .content span {
   font-family: "Albert Sans";
   font-weight: 500;
-  font-size: clamp(2em, 7.5vw, 4em); /* Tamaño adaptativo del texto */
-  line-height: 235%; /* Ajusta la altura de línea */
+  font-size: clamp(2em, 7.5vw, 3em); /* Tamaño adaptativo del texto */
+  line-height: 500%; /* Ajusta la altura de línea */
   color: #062324;
   white-space: nowrap; /* Mantiene el texto en una sola línea */
-  margin-left: 60px; /* Restablece márgenes por defecto */
-  margin-right: 60px;
+  margin-left: 90px; /* Restablece márgenes por defecto */
+  margin-right: 90px;
 }
 
 .content p {
@@ -161,6 +161,7 @@ body {
 
 /* Estilo del botón de hamburguesa */
 .menu-icon {
+  mix-blend-mode: difference;
   position: fixed;
   top: 20px;
   right: 20px;
@@ -177,9 +178,9 @@ body {
 .menu-icon div {
   width: 30px;
   height: 5px;
-  background-color: #062324;
-  border-radius: 5px;
-  z-index: 10;
+  background-color: rgb(255, 228, 75);
+  transform-origin: center center; /* El origen de la transformación es el borde izquierdo */
+  transition: width 0.5s ease-in-out;
 }
 
 /* Contenedor del menú */
@@ -197,6 +198,7 @@ body {
   transition: right 0.3s ease;
   box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.2);
   z-index: 10;
+  opacity: 0.95;
 }
 
 .menu a {
@@ -221,6 +223,18 @@ body {
 
 .menu.open {
   right: 0;
+}
+
+.color-filtro-1 {
+  z-index: 0;
+  width: 50%; /* Mitad derecha de la pantalla */
+  height: 100vh; /* Toda la altura del viewport */
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: rgb(153, 153, 153);
+  mix-blend-mode: color;
 }
 
 .cortinilla {
@@ -266,7 +280,8 @@ body {
   .container-l,
   .container-wide,
   .container-l-wide,
-  .cortinilla {
+  .cortinilla,
+  .color-filtro-1 {
     width: 100%; /* Ocupa todo el ancho de la pantalla */
     height: 100vh; /* Ajusta la altura según el contenido */
   }
