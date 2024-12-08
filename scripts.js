@@ -26,6 +26,7 @@ function avanzarCortinilla() {
 setInterval(avanzarCortinilla, 3000);
 
 //MENU
+gsap.registerPlugin(ScrollTrigger);
 
 // Función para abrir y cerrar el menú
 function toggleMenu() {
@@ -74,65 +75,112 @@ window.addEventListener("scroll", () => {
 
 //ENTRADA TEXTO 1
 // Animación de entrada de texto
+
 gsap.registerPlugin(ScrollTrigger);
 
-const spans = document.querySelectorAll(".content span");
+// Primera animación: Entrada y salida de spans
+const spans = document.querySelectorAll(".span-giratorio");
 
 spans.forEach((span) => {
   gsap.fromTo(
     span,
-    { x: -200, opacity: 0 }, // Estado inicial (fuera de pantalla)
+    { x: -200, opacity: 0 }, // Fuera de la pantalla
     {
       x: 0,
       opacity: 1,
-      duration: 1.5,
+      duration: 1,
       ease: "power2.out",
       scrollTrigger: {
         trigger: span,
-        start: "top 99%", // Empieza a animarse al entrar al viewport
-        end: "top 1%", // Considerado fuera del viewport cuando la parte superior del span está cerca de salir
-        onEnter: () =>
-          gsap.fromTo(
-            span,
-            { x: -200, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.5, ease: "power2.out" }
-          ),
-        onLeave: () => gsap.set(span, { x: -200, opacity: 0 }), // Se esconde al salir
+        start: "top 90%", // Entra al 90% de la pantalla
+        end: "top 10%", // Sale al 10%
+        toggleActions: "play reverse play reverse", // Animación en ambas direcciones
       },
     }
   );
+});
 
-  // Funcionalidad de rotación al hacer hover o tap
-  span.addEventListener("mouseenter", () => {
-    gsap.to(span, {
+// Segunda animación: Interacción con hover o tap
+const interactiveDivs = document.querySelectorAll(".interactive-div");
+
+interactiveDivs.forEach((div) => {
+  const span = div.querySelector(".span-giratorio");
+  const description = div.querySelector(".descripcion-1");
+  // Animación de hover (para dispositivos de escritorio)
+  div.addEventListener("mouseenter", () => {
+    // Rotar el div
+    gsap.to(div, {
       rotation: -90,
       duration: 0.3,
       ease: "power1.inOut",
     });
+
+    // Mostrar la descripción
+    gsap.to(description, {
+      rotation: 90,
+      opacity: 1,
+      y: 0,
+      duration: 0.3,
+      ease: "power1.out",
+      pointerEvents: "all", // Permite interacción
+    });
   });
 
-  span.addEventListener("mouseleave", () => {
-    gsap.to(span, {
+  // Animación de salir del hover (para dispositivos de escritorio)
+  div.addEventListener("mouseleave", () => {
+    // Revertir la rotación del div
+    gsap.to(div, {
       rotation: 0,
       duration: 0.3,
       ease: "power1.inOut",
     });
+
+    // Ocultar la descripción
+    gsap.to(description, {
+      opacity: 0,
+      y: 0,
+      duration: 0.3,
+      ease: "power1.in",
+      pointerEvents: "none", // Desactiva interacción
+    });
   });
 
-  // Para dispositivos móviles, usar touchstart para detectar el tap
-  span.addEventListener("touchstart", () => {
-    gsap.to(span, {
+  // Animación de tap (para dispositivos móviles)
+  div.addEventListener("touchstart", () => {
+    // Rotar el div al tocarlo
+    gsap.to(div, {
       rotation: -90,
       duration: 0.3,
       ease: "power1.inOut",
     });
+
+    // Mostrar la descripción
+    gsap.to(description, {
+      rotation: 90,
+      opacity: 1,
+      y: 0,
+      duration: 0.3,
+      ease: "power1.out",
+      pointerEvents: "all", // Permite interacción
+    });
   });
 
-  span.addEventListener("touchend", () => {
-    gsap.to(span, {
+  // Animación de soltar el tap (para dispositivos móviles)
+  div.addEventListener("touchend", () => {
+    // Revertir la rotación del div al soltar el tap
+    gsap.to(div, {
       rotation: 0,
       duration: 0.3,
       ease: "power1.inOut",
+    });
+
+    // Ocultar la descripción
+    gsap.to(description, {
+      opacity: 0,
+      y: 0,
+      duration: 0.3,
+      ease: "power1.in",
+      pointerEvents: "none", // Desactiva interacción
     });
   });
 });

@@ -102,7 +102,7 @@ body {
 
 /* Borde cuadrado en el centro */
 .border-box {
-  width: 80%;
+  width: 200em;
   height: 80%;
   border: 2px solid #062324;
   display: flex;
@@ -112,6 +112,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: inherit;
 }
 
 /* Borde interno */
@@ -123,7 +124,7 @@ body {
   right: 10px;
   bottom: 10px;
   border: 2px solid #062324;
-  z-index: 1;
+  z-index: inherit;
 }
 
 /* Contenedor principal */
@@ -136,32 +137,49 @@ body {
   flex-wrap: nowrap; /* Evita que los spans se rompan en varias líneas */
 }
 
+.interactive-div {
+  position: relative;
+  align-items: center;
+  align-content: center;
+  margin-right: 125px;
+  margin-left: 125px;
+  width: 200px;
+  height: 200px;
+  z-index: 25;
+}
+
 /* Estilo del texto */
-.content span {
-  font-family: "Albert Sans";
-  font-weight: 500;
-  font-size: clamp(2em, 7.5vw, 3em); /* Tamaño adaptativo del texto */
-  line-height: 500%; /* Ajusta la altura de línea */
+.span-giratorio {
+  font-family: "Denton" !important;
+  line-height: 310%;
+  font-weight: 300;
+  font-size: clamp(2em, 7.5vw, 3em);
   color: #062324;
-  white-space: nowrap; /* Mantiene el texto en una sola línea */
-  margin-left: 90px; /* Restablece márgenes por defecto */
-  margin-right: 90px;
+  user-select: none; /* Impide la selección de texto */
+  position: relative;
+  transform-origin: center center; /* Punto de rotación */
+  text-align: center;
+  align-self: center;
 }
 
-.content p {
+.descripcion-1 {
+  margin-top: 50px;
   font-family: "Albert Sans";
-  font-weight: 400;
-  font-size: 1.2rem;
-  color: #062324;
-  line-height: 1.6;
-  margin-top: 4em;
-  margin-right: 4em;
-  margin-left: 4em;
+  line-height: 150%;
+  font-size: 1.2em;
+  color: #000000;
+  opacity: 0; /* Oculto inicialmente */
+  pointer-events: none; /* Evita interacción mientras esté oculto */
+  transition: opacity 0.3s ease;
+  position: absolute;
+  margin: 0; /* Elimina márgenes por defecto */
+  display: block;
+  justify-content: center; /* Centers text horizontally */
+  align-items: center; /* Centers text vertically */
+  text-align: left;
 }
-
 /* Estilo del botón de hamburguesa */
 .menu-icon {
-  mix-blend-mode: difference;
   position: fixed;
   top: 20px;
   right: 20px;
@@ -178,7 +196,7 @@ body {
 .menu-icon div {
   width: 30px;
   height: 5px;
-  background-color: rgb(255, 228, 75);
+  background-color: #062324;
   transform-origin: center center; /* El origen de la transformación es el borde izquierdo */
   transition: width 0.5s ease-in-out;
 }
