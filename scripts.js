@@ -85,12 +85,12 @@ spans.forEach((span) => {
     {
       x: 0,
       opacity: 1,
-      duration: 2.3,
+      duration: 2,
       ease: "power2.out",
       scrollTrigger: {
         trigger: span,
-        start: "top 102%",
-        end: "top -3%",
+        start: "top 105%",
+        end: "top -10%",
         toggleActions: "play reverse play reverse", // Animación en ambas direcciones
       },
     }

@@ -32,7 +32,11 @@ body {
 
 .logo {
   font-family: "Denton", sans-serif !important; /* Fuente */
-  font-size: 10em !important; /* Tamaño del texto */
+  font-size: clamp(
+    4.5rem,
+    2.143rem + 7.619vw,
+    8rem
+  ) !important; /* Tamaño del texto */
   font-weight: 100 !important; /* Texto en negrita */
   color: #062324; /* Color del texto */
   margin: 150px; /* Espaciado interno */
@@ -205,7 +209,7 @@ body {
   position: fixed;
   top: 10px;
   right: 10px;
-  z-index: 15;
+  z-index: 35;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -237,7 +241,7 @@ body {
   justify-content: center;
   transition: right 0.3s ease;
   box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 10;
+  z-index: 30;
   opacity: 0.95;
 }
 
@@ -323,7 +327,7 @@ body {
   .cortinilla,
   .color-filtro-1 {
     width: 100%; /* Ocupa todo el ancho de la pantalla */
-    height: 100vh; /* Ajusta la altura según el contenido */
+    height: 120vh; /* Ajusta la altura según el contenido */
   }
   .menu {
     width: 100%; /* Ocupa el 100% de la pantalla */
@@ -338,6 +342,7 @@ body {
 @media (max-width: 1400px) {
   .content {
     flex-direction: column; /* Cambia la dirección a vertical */
+    gap: 60px;
   }
 }
 @media (max-width: 1400px) {
