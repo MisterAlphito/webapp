@@ -32,7 +32,7 @@ body {
 
 .logo {
   font-family: "Denton", sans-serif !important; /* Fuente */
-  font-size: 4em !important; /* Tamaño del texto */
+  font-size: 10em !important; /* Tamaño del texto */
   font-weight: 100 !important; /* Texto en negrita */
   color: #062324; /* Color del texto */
   margin: 150px; /* Espaciado interno */
@@ -52,8 +52,8 @@ body {
 .container {
   position: relative;
   width: 50%; /* Ocupa el 100% del ancho de la pantalla */
-  height: 100vh; /* Ajusta la altura según lo necesario */
-  background-color: #b2ddee; /* Fondo azul claro */
+  height: 90vh; /* Ajusta la altura según lo necesario */
+  background-color: #b0bcf5; /* Fondo azul claro */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +64,7 @@ body {
 .container-l {
   position: relative;
   width: 50%; /* Ocupa el 100% del ancho de la pantalla */
-  height: 100vh; /* Ajusta la altura según lo necesario */
+  height: 90vh; /* Ajusta la altura según lo necesario */
   background-color: #e2bd79; /* Fondo azul claro */
   display: flex;
   justify-content: center;
@@ -78,12 +78,14 @@ body {
 .container-wide {
   position: relative;
   width: 100%; /* Ocupa el 100% del ancho de la pantalla */
-  height: 50vh; /* Ajusta la altura según lo necesario */
-  background-color: #b2ddee; /* Fondo azul claro */
+  height: 90vh; /* Ajusta la altura según lo necesario */
+  background-color: #b0bcf5; /* Fondo azul claro */
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: auto;
+  overflow: clip;
+  right: 0;
+  top: 0;
 }
 
 /* Caja principal Right */
@@ -102,8 +104,8 @@ body {
 
 /* Borde cuadrado en el centro */
 .border-box {
-  width: 200em;
-  height: 80%;
+  width: 85%;
+  height: 75%;
   border: 2px solid #062324;
   display: flex;
   justify-content: center;
@@ -113,6 +115,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: inherit;
+  padding: 20px;
 }
 
 /* Borde interno */
@@ -125,6 +128,7 @@ body {
   bottom: 10px;
   border: 2px solid #062324;
   z-index: inherit;
+  padding: 20px;
 }
 
 /* Contenedor principal */
@@ -135,25 +139,41 @@ body {
   text-align: center;
   color: #333333;
   flex-wrap: nowrap; /* Evita que los spans se rompan en varias líneas */
+  margin: 60px;
 }
 
 .interactive-div {
+  display: flex; /* Activar flexbox */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
   position: relative;
-  align-items: center;
-  align-content: center;
+  margin-top: 35px;
+  margin-bottom: 35px;
   margin-right: 125px;
   margin-left: 125px;
   width: 200px;
-  height: 200px;
+  height: 300px;
   z-index: 25;
+}
+
+.interactive-div::before {
+  content: "";
+  position: absolute;
+  top: -35px; /* Amplía hacia arriba */
+  left: -200px; /* Amplía hacia la izquierda */
+  right: -150px; /* Amplía hacia la derecha */
+  bottom: -200px; /* Amplía hacia abajo */
+  z-index: 24; /* Coloca detrás del contenido si es necesario */
+  background: transparent; /* No visible */
+  pointer-events: all; /* Hace interactivo el pseudo-elemento */
 }
 
 /* Estilo del texto */
 .span-giratorio {
   font-family: "Denton" !important;
-  line-height: 310%;
+  line-height: 200%;
   font-weight: 300;
-  font-size: clamp(2em, 7.5vw, 3em);
+  font-size: clamp(1.7em, 4.5vw, 2.8em);
   color: #062324;
   user-select: none; /* Impide la selección de texto */
   position: relative;
@@ -166,7 +186,7 @@ body {
   margin-top: 50px;
   font-family: "Albert Sans";
   line-height: 150%;
-  font-size: 1.2em;
+  font-size: clamp(0.35em, 4.5vw, 1.15em);
   color: #000000;
   opacity: 0; /* Oculto inicialmente */
   pointer-events: none; /* Evita interacción mientras esté oculto */
@@ -177,12 +197,14 @@ body {
   justify-content: center; /* Centers text horizontally */
   align-items: center; /* Centers text vertically */
   text-align: left;
+  user-select: none; /* Impide la selección de texto */
+  margin-top: 300px;
 }
 /* Estilo del botón de hamburguesa */
 .menu-icon {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   z-index: 15;
   cursor: pointer;
   display: flex;
@@ -195,7 +217,7 @@ body {
 
 .menu-icon div {
   width: 30px;
-  height: 5px;
+  height: 3px;
   background-color: #062324;
   transform-origin: center center; /* El origen de la transformación es el borde izquierdo */
   transition: width 0.5s ease-in-out;
@@ -258,7 +280,7 @@ body {
 .cortinilla {
   z-index: -5;
   width: 50%; /* Mitad derecha de la pantalla */
-  height: 100vh; /* Toda la altura del viewport */
+  height: 90vh; /* Toda la altura del viewport */
   overflow: hidden;
   position: relative;
   right: 0;
@@ -316,5 +338,10 @@ body {
 @media (max-width: 1400px) {
   .content {
     flex-direction: column; /* Cambia la dirección a vertical */
+  }
+}
+@media (max-width: 1400px) {
+  .interactive-div {
+    height: 20px;
   }
 }
