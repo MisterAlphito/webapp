@@ -82,12 +82,12 @@ body {
 .container-wide {
   position: relative;
   width: 100%; /* Ocupa el 100% del ancho de la pantalla */
-  height: 90vh; /* Ajusta la altura según lo necesario */
+  height: 100vh; /* Ajusta la altura según lo necesario */
   background-color: #b0bcf5; /* Fondo azul claro */
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: clip;
+  overflow: auto;
   right: 0;
   top: 0;
 }
@@ -314,6 +314,54 @@ body {
   object-fit: cover;
 }
 
+/* Grid container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 80px;
+  width: 100%; /* Set the grid width */
+  max-width: 1600px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Grid items */
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  box-shadow: #1c0e57 -10px 10px;
+  width: fit-content;
+  opacity: 0;
+}
+
+/* Images */
+.grid-item img {
+  width: auto; /* Scale to 20% of original width */
+  height: clamp(10rem, 2.143rem + 7.619vw, 12rem); /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Smooth scaling */
+  overflow: hidden;
+  opacity: 0; /* Oculto inicialmente */
+}
+
+/* Hover effects */
+.grid-item:hover img {
+  transform-origin: center center;
+  transform: scale(1.1) !important; /* Slight enlargement on hover */
+}
+
+.grid-item:hover {
+  transform-origin: center center;
+  transform: scale(
+    1.2
+  ) !important; /* Optional: Enlarge the entire cell slightly */
+}
+
 /* Breakpoint para pantallas pequeñas */
 @media (max-width: 1400px) {
   body {
@@ -322,13 +370,13 @@ body {
 
   .container,
   .container-l,
-  .container-wide,
   .container-l-wide,
   .cortinilla,
   .color-filtro-1 {
     width: 100%; /* Ocupa todo el ancho de la pantalla */
     height: 120vh; /* Ajusta la altura según el contenido */
   }
+
   .menu {
     width: 100%; /* Ocupa el 100% de la pantalla */
     right: -100%; /* Inicialmente fuera de la pantalla */
@@ -342,11 +390,23 @@ body {
 @media (max-width: 1400px) {
   .content {
     flex-direction: column; /* Cambia la dirección a vertical */
-    gap: 60px;
+    gap: 90px;
   }
 }
 @media (max-width: 1400px) {
   .interactive-div {
     height: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 0.6fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 65px;
+  }
+
+  .container-wide {
+    height: 310vh;
   }
 }
