@@ -218,13 +218,11 @@ gridItems.forEach((item) => {
   // Inicializar opacidad y box-shadow
   gsap.set(item, {
     opacity: 0,
-    boxShadow: "rgba(28, 14, 87, 0) -10px 10px",
   });
 
   // Animar .grid-item al entrar en el viewport
   gsap.to(item, {
     opacity: 1,
-    boxShadow: "rgba(28, 14, 87, 1) -10px 10px", // Opacidad del box-shadow a 1
     duration: 1.2,
     ease: "power2.out",
     scrollTrigger: {
@@ -258,3 +256,29 @@ gridImages.forEach((img) => {
     },
   });
 });
+
+// Seleccionar todos los elementos .grid-item
+
+// Agregar animaciones al hover
+gridItems.forEach((item) => {
+  const h2 = item.querySelector("h2");
+
+  item.addEventListener("mouseenter", () => {
+    // Animar la opacidad y posición del texto
+    gsap.to(h2, {
+      opacity: 1,
+      duration: 0.3,
+      ease: "power1.out",
+    });
+  });
+
+  item.addEventListener("mouseleave", () => {
+    // Ocultar el texto al quitar el hover
+    gsap.to(h2, {
+      opacity: 0,
+      duration: 0.3,
+      ease: "power1.in",
+    });
+  });
+});
+
