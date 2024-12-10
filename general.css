@@ -1,4 +1,31 @@
 @import url("fonts.css");
+@font-face {
+  font-family: "Denton";
+  font-style: normal;
+  font-weight: 300; /* Light */
+  src: url("imgs/DENTON-LIGHT.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Denton";
+  font-style: italic;
+  font-weight: 300; /* Light Italic */
+  src: url("imgs/DENTON-LIGHTITALIC.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Denton";
+  font-style: normal;
+  font-weight: 400; /* Regular */
+  src: url("imgs/DENTON-REGULAR.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Denton";
+  font-style: italic;
+  font-weight: 400; /* Regular Italic */
+  src: url("imgs/DENTON-REGULARITALIC.woff2") format("woff2");
+}
 
 body {
   display: flex;
@@ -37,7 +64,8 @@ body {
     2.143rem + 7.619vw,
     8rem
   ) !important; /* Tamaño del texto */
-  font-weight: 100 !important; /* Texto en negrita */
+  font-style: normal !important; /* Texto en negrita */
+  font-weight: 300;
   color: #062324; /* Color del texto */
   margin: 150px; /* Espaciado interno */
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
@@ -177,6 +205,7 @@ body {
   font-family: "Denton" !important;
   line-height: 200%;
   font-weight: 300;
+  font-style: italic !important;
   font-size: clamp(1.7em, 4.5vw, 2.8em);
   color: #062324;
   user-select: none; /* Impide la selección de texto */
@@ -190,7 +219,7 @@ body {
   margin-top: 50px;
   font-family: "Albert Sans";
   line-height: 150%;
-  font-size: clamp(0.35em, 4.5vw, 1.15em);
+  font-size: clamp(0.25em, 4.5vw, 1.05em);
   color: #000000;
   opacity: 0; /* Oculto inicialmente */
   pointer-events: none; /* Evita interacción mientras esté oculto */
@@ -198,11 +227,12 @@ body {
   position: absolute;
   margin: 0; /* Elimina márgenes por defecto */
   display: block;
+  width: 300px;
   justify-content: center; /* Centers text horizontally */
   align-items: center; /* Centers text vertically */
-  text-align: left;
+  text-align: center;
   user-select: none; /* Impide la selección de texto */
-  margin-top: 300px;
+  margin-top: 250px;
 }
 /* Estilo del botón de hamburguesa */
 .menu-icon {
@@ -385,15 +415,10 @@ body {
   .menu.open {
     right: 0; /* Muestra el menú al abrirlo */
   }
-}
-
-@media (max-width: 1400px) {
   .content {
     flex-direction: column; /* Cambia la dirección a vertical */
     gap: 90px;
   }
-}
-@media (max-width: 1400px) {
   .interactive-div {
     height: 20px;
   }
@@ -406,7 +431,26 @@ body {
     gap: 65px;
   }
 
-  .container-wide {
-    height: 310vh;
+  .container-l-wide {
+    height: 155vh;
+  }
+
+  .descripcion-1 {
+    margin-top: 90px;
+    width: 240px;
+  }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 800px) {
+  .content {
+    flex-direction: column; /* Cambia la dirección a vertical */
+    gap: 50px;
+  }
+  .descripcion-1 {
+    margin-top: 110px;
+    width: 350px;
+  }
+  .container-l-wide {
+    height: 155vh;
   }
 }

@@ -105,90 +105,80 @@ interactiveDivs.forEach((div) => {
   const description = div.querySelector(".descripcion-1");
 
   // Estado para alternar animaciones
-  let isRotated = false;
+  let isUp = false;
 
   // Animación de hover (para dispositivos de escritorio)
   div.addEventListener("mouseenter", () => {
-    if (!isRotated) {
+    if (!isUp) {
       gsap.to(div, {
-        rotation: -90,
         duration: 0.3,
         ease: "power1.inOut",
-        x: -250,
+        y: -80,
       });
 
       gsap.to(description, {
-        rotation: 90,
         opacity: 1,
-        y: 0,
+        y: 30,
         duration: 0.3,
         ease: "power1.out",
-        pointerEvents: "all", // Permite interacción
       });
     }
   });
 
   // Animación de salir del hover (para dispositivos de escritorio)
   div.addEventListener("mouseleave", () => {
-    if (!isRotated) {
+    if (!isUp) {
       gsap.to(div, {
-        rotation: 0,
-        x: 0,
+        y: origin,
         duration: 0.3,
         ease: "power1.inOut",
       });
 
       gsap.to(description, {
         opacity: 0,
-        y: 0,
+        y: origin,
         duration: 0.3,
         ease: "power1.in",
-        pointerEvents: "none", // Desactiva interacción
       });
     }
   });
 
   // Animación de tap (para dispositivos móviles)
   div.addEventListener("touchstart", () => {
-    if (!isRotated) {
+    if (!isUp) {
       // Rotar el div al tocarlo
       gsap.to(div, {
-        rotation: -90,
+        y: -80,
         duration: 0.3,
         ease: "power1.inOut",
-        x: -150,
       });
 
       // Mostrar la descripción
       gsap.to(description, {
-        rotation: 90,
         opacity: 1,
-        y: 0,
+        y: 20,
         duration: 0.3,
         ease: "power1.out",
-        pointerEvents: "all", // Permite interacción
       });
     } else {
       // Revertir la rotación del div al soltar el tap
       gsap.to(div, {
-        rotation: 0,
+        y: origin,
         duration: 0.3,
         ease: "power1.inOut",
-        x: 0,
       });
 
       // Ocultar la descripción
       gsap.to(description, {
         opacity: 0,
-        y: 0,
+        y: origin,
         duration: 0.3,
         ease: "power1.in",
-        pointerEvents: "none", // Desactiva interacción
       });
     }
 
     // Alternar estado
-    isRotated = !isRotated;
+    isUp = !isUp;
   });
 
   // Animación de soltar el tap (no necesaria en este caso)
