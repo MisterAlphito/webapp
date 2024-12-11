@@ -143,10 +143,10 @@ interactiveDivs.forEach((div) => {
     }
   });
 
-  // Animación de tap (para dispositivos móviles)
-  div.addEventListener("touchstart", () => {
+  // Animación de clic/tap (funciona en escritorio y móviles)
+  div.addEventListener("click", () => {
     if (!isUp) {
-      // Rotar el div al tocarlo
+      // Rotar el div al tocarlo o hacer clic
       gsap.to(div, {
         y: -80,
         duration: 0.3,
@@ -161,9 +161,9 @@ interactiveDivs.forEach((div) => {
         ease: "power1.out",
       });
     } else {
-      // Revertir la rotación del div al soltar el tap
+      // Revertir la rotación del div
       gsap.to(div, {
-        y: origin,
+        y: 0,
         duration: 0.3,
         ease: "power1.inOut",
       });
@@ -171,7 +171,7 @@ interactiveDivs.forEach((div) => {
       // Ocultar la descripción
       gsap.to(description, {
         opacity: 0,
-        y: origin,
+        y: 0,
         duration: 0.3,
         ease: "power1.in",
       });
@@ -266,7 +266,7 @@ gridItems.forEach((item) => {
   item.addEventListener("mouseenter", () => {
     // Animar la opacidad y posición del texto
     gsap.to(h2, {
-      opacity: 1,
+      opacity: 0.9,
       duration: 0.3,
       ease: "power1.out",
     });
@@ -281,4 +281,3 @@ gridItems.forEach((item) => {
     });
   });
 });
-

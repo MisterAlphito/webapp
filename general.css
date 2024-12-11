@@ -55,7 +55,6 @@ body {
   mix-blend-mode: soft-light;
   opacity: 0.5;
   pointer-events: none;
-
 }
 
 /* Estilo del contenedor */
@@ -133,12 +132,12 @@ body {
   height: 100vh; /* Ajusta la altura según lo necesario */
   background-color: #b0bcf5; /* Fondo azul claro */
   display: flex;
-  justify-content: center;
+  justify-items: center;
   align-items: center;
   overflow: clip;
+  flex-direction: column;
   right: 0;
   top: 0;
-
 }
 
 /* Caja principal Right */
@@ -236,6 +235,40 @@ body {
   align-self: center;
 }
 
+/* Estilo del texto */
+.h1-standard-l {
+  font-family: "Albert Sans" !important;
+  font-weight: 300;
+  font-style: normal !important;
+  font-size: clamp(10.7em, 4.5vw, 24.8em);
+  color: #f3eded;
+  user-select: none; /* Impide la selección de texto */
+  position: absolute;
+  text-align: left;
+  align-self: left;
+  justify-self: left;
+  top: -92px;
+  left: 0;
+  line-height: 100%;
+  mix-blend-mode: multiply;
+}
+.h1-standard-r {
+  font-family: "Albert Sans" !important;
+  font-weight: 300;
+  font-style: normal !important;
+  font-size: clamp(10.7em, 4.5vw, 24.8em);
+  color: #f3eded;
+  user-select: none; /* Impide la selección de texto */
+  position: absolute;
+  text-align: left;
+  align-self: left;
+  justify-self: left;
+  top: -92px;
+  right: 0;
+  line-height: 100%;
+  mix-blend-mode: multiply;
+}
+
 .descripcion-1 {
   margin-top: 50px;
   font-family: "Albert Sans";
@@ -250,7 +283,6 @@ body {
   display: block;
   width: 300px;
   justify-content: center; /* Centers text horizontally */
-  align-items: center; /* Centers text vertically */
   text-align: center;
   user-select: none; /* Impide la selección de texto */
   margin-top: 250px;
@@ -260,7 +292,7 @@ body {
   position: fixed;
   top: 10px;
   right: 10px;
-  z-index: 35;
+  z-index: 210;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -285,14 +317,14 @@ body {
   right: -50%;
   width: 40%;
   height: 100%;
-  background-color: rgb(255, 228, 75);
+  background-color: #f5df7c;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: right 0.3s ease;
   box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 30;
+  z-index: 200;
   opacity: 0.95;
 }
 
@@ -379,6 +411,7 @@ body {
   overflow: clip;
   z-index: 60;
   padding: 40px;
+  padding-top: 270px;
 }
 
 /* Grid items */
@@ -400,14 +433,15 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0;
-  font-size: 1.3em;
+  font-size: 1.2em;
   color: rgb(0, 0, 0);
-  background-color: rgb(255, 228, 75);
-  padding: 150px 150px;
+  background-color: #f5df7c;
+  padding: 100px 100px;
   text-align: center;
   pointer-events: none; /* Prevent interaction */
-  opacity: 0.08;
+  opacity: 0;
+  display: block;
+  width: 110px;
 }
 
 /* Images */
@@ -501,6 +535,6 @@ body {
     height: 520vh;
   }
   .grid-container {
-    gap: 55px;
+    gap: 45px;
   }
 }
