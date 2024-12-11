@@ -46,6 +46,8 @@ body {
   mix-blend-mode: hard-light;
   opacity: 0.4;
   pointer-events: none;
+  height: 115%;
+  width: auto;
 }
 .filtro-tex-2 {
   z-index: 45;
@@ -92,6 +94,25 @@ body {
   text-overflow: ellipsis; /* Opcional: muestra "..." si el texto es demasiado largo */
 }
 
+.logo-fondo {
+  font-family: "Denton", sans-serif !important; /* Fuente */
+  font-style: normal !important; /* Texto en negrita */
+  font-weight: 300;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  font-style: normal !important;
+  font-size: clamp(6.5em, 8.5vw, 16em);
+  color: #ece163;
+  user-select: none; /* Impide la selección de texto */
+  position: absolute;
+  text-align: center;
+  justify-self: center;
+  justify-content: start;
+  margin: 0;
+  left: 0;
+  line-height: 100%;
+  mix-blend-mode: hard-light;
+}
+
 .main-container {
   display: flex;
   flex-direction: row; /* Los elementos estarán en fila por defecto */
@@ -107,7 +128,7 @@ body {
   background-color: #b0bcf5; /* Fondo azul claro */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   overflow: hidden;
 }
 
@@ -129,7 +150,7 @@ body {
 .container-wide {
   position: relative;
   width: 100%; /* Ocupa el 100% del ancho de la pantalla */
-  height: 100vh; /* Ajusta la altura según lo necesario */
+  height: 115vh; /* Ajusta la altura según lo necesario */
   background-color: #b0bcf5; /* Fondo azul claro */
   display: flex;
   justify-items: center;
@@ -186,9 +207,7 @@ body {
 /* Contenedor principal */
 .content {
   display: flex; /* Flexbox para alinear los spans en hilera por defecto */
-  justify-content: center; /* Opcional: distribuye spans de forma central */
-  align-items: center; /* Alinea los spans verticalmente en el centro */
-  text-align: center;
+  align-items: start; /* Alinea los spans verticalmente en el centro */
   color: #333333;
   flex-wrap: nowrap; /* Evita que los spans se rompan en varias líneas */
   margin: 60px;
@@ -203,7 +222,7 @@ body {
   margin-bottom: 35px;
   margin-right: 125px;
   margin-left: 125px;
-  width: 200px;
+  width: 150px;
   height: 300px;
   z-index: 25;
 }
@@ -225,56 +244,57 @@ body {
   font-family: "Denton" !important;
   line-height: 200%;
   font-weight: 300;
-  font-style: italic !important;
-  font-size: clamp(1.7em, 4.5vw, 2.8em);
-  color: #062324;
+  font-style: normal !important;
+  font-size: clamp(2em, 5.5vw, 3.2em);
+  color: #52523c;
   user-select: none; /* Impide la selección de texto */
   position: relative;
   transform-origin: center center; /* Punto de rotación */
   text-align: center;
   align-self: center;
 }
+.texto-grande-r {
+  font-family: "Denton" !important;
+  line-height: 100%;
+  font-weight: 300;
+  font-style: normal !important;
+  font-size: clamp(1em, 4.5vw, 2.2em);
+  color: #52523c;
+  user-select: none; /* Impide la selección de texto */
+  position: absolute;
+  text-align: right;
+  align-self: end;
+  margin-right: 30px;
+  right: 0;
+  width: 30vw;
+}
 
 /* Estilo del texto */
-.h1-standard-l {
-  font-family: "Albert Sans" !important;
+.h1-standard {
+  font-family: "Denton" !important;
   font-weight: 300;
   font-style: normal !important;
-  font-size: clamp(10.7em, 4.5vw, 24.8em);
-  color: #f3eded;
+  font-size: clamp(5.2em, 8.5vw, 16em);
+  color: #f0efe4;
   user-select: none; /* Impide la selección de texto */
   position: absolute;
-  text-align: left;
-  align-self: left;
-  justify-self: left;
-  top: -92px;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  top: 0px;
   left: 0;
-  line-height: 100%;
+  margin: 0;
+  line-height: 115%;
   mix-blend-mode: multiply;
-}
-.h1-standard-r {
-  font-family: "Albert Sans" !important;
-  font-weight: 300;
-  font-style: normal !important;
-  font-size: clamp(10.7em, 4.5vw, 24.8em);
-  color: #f3eded;
-  user-select: none; /* Impide la selección de texto */
-  position: absolute;
-  text-align: left;
-  align-self: left;
-  justify-self: left;
-  top: -92px;
-  right: 0;
-  line-height: 100%;
-  mix-blend-mode: multiply;
+
 }
 
 .descripcion-1 {
   margin-top: 50px;
   font-family: "Albert Sans";
-  line-height: 150%;
-  font-size: clamp(0.25em, 4.5vw, 1.05em);
-  color: #000000;
+  line-height: 135%;
+  font-size: clamp(0.55em, 3.7vw, 1.3em);
+  color: #52523c;
   opacity: 0; /* Oculto inicialmente */
   pointer-events: none; /* Evita interacción mientras esté oculto */
   transition: opacity 0.3s ease;
@@ -402,7 +422,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 80px;
+  gap: 70px;
   width: 100%; /* Set the grid width */
   max-width: 1600px;
   justify-content: center;
@@ -410,8 +430,8 @@ body {
   justify-items: center;
   overflow: clip;
   z-index: 60;
-  padding: 40px;
-  padding-top: 270px;
+  padding: 35px;
+  padding-top: 200px;
 }
 
 /* Grid items */
@@ -491,10 +511,10 @@ body {
   }
   .content {
     flex-direction: column; /* Cambia la dirección a vertical */
-    gap: 90px;
+    gap: 35px;
   }
   .interactive-div {
-    height: 20px;
+    height: 15px;
   }
 }
 
@@ -506,33 +526,56 @@ body {
   }
 
   .container-l-wide {
-    height: 125vh;
+    flex-direction: column;
+    display: flex;
+    height: 85vh;
   }
 
   .container-wide {
-    height: 320vh;
+    height: 2200px;
+  }
+
+  .content {
+    flex-direction: column; /* Cambia la dirección a vertical */
+    margin-top: 160px;
+    gap: 52px;
   }
 
   .descripcion-1 {
-    margin-top: 90px;
-    width: 240px;
+    margin-top: 120px;
+    width: 320px;
+  }
+  .interactive-div {
+    height: 35px;
+  }
+  .h1-standard {
+    position: absolute;
+    display: block;
+    text-align: center;
+    left: 50vh;
+    right: 50vh;
+  }
+  .logo-fondo {
+    text-align: center;
+    left: 50vh;
+    right: 50vh;
   }
 }
 
-@media only screen and (orientation: landscape) and (max-width: 800px) {
-  .content {
-    flex-direction: column; /* Cambia la dirección a vertical */
-    gap: 50px;
-  }
+@media only screen and (orientation: landscape) and (max-width: 1400px) {
   .descripcion-1 {
-    margin-top: 110px;
-    width: 350px;
+    margin-top: 135px;
+    width: 450px;
   }
   .container-l-wide {
-    height: 155vh;
+    height: 150vh;
   }
   .container-wide {
-    height: 520vh;
+    height: 535vh;
+  }
+  .content {
+    flex-direction: column; /* Cambia la dirección a vertical */
+    gap: 85px;
   }
   .grid-container {
     gap: 45px;
