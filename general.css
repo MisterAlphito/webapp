@@ -46,7 +46,7 @@ body {
   mix-blend-mode: hard-light;
   opacity: 0.4;
   pointer-events: none;
-  height: 200%;
+  height: 150%;
   width: auto;
 }
 .filtro-tex-2 {
@@ -168,7 +168,7 @@ body {
   position: relative;
   width: 100%; /* Ocupa el 100% del ancho de la pantalla */
   height: 50vh; /* Ajusta la altura según lo necesario */
-  background-color: rgb(171, 165, 209); /* Fondo azul claro */
+  background-color: rgb(190, 184, 231); /* Fondo azul claro */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -330,7 +330,7 @@ body {
   font-family: "Albert Sans";
   line-height: 135%;
   font-size: clamp(0.55em, 4.7vw, 1.3em);
-  color: #52523c;
+  color: #242325;
   opacity: 0; /* Oculto inicialmente */
   pointer-events: none; /* Evita interacción mientras esté oculto */
   transition: opacity 0.3s ease;
@@ -462,10 +462,10 @@ body {
   height: auto; /* Altura dinámica según el contenido */
   justify-content: center; /* Centra los elementos horizontalmente */
   align-items: center; /* Centra los elementos verticalmente */
-  z-index: 10;
+  z-index: 40;
   box-sizing: border-box; /* Asegura que el padding no afecte al tamaño total */
-  padding: 0;
-  margin-top: 200px;
+  padding: 50px;
+  margin-top: 150px;
 }
 
 /* Grid items */
@@ -479,38 +479,39 @@ body {
   width: auto; /* Se ajusta a la celda del grid */
   height: 60vh; /* Se ajusta dinámicamente */
   opacity: 1; /* Asegura que sea visible */
-  z-index: inherit;
-  margin: 45px;
-  border: 2px solid #314849;
+  margin: 20px;
+  z-index: 50;
 }
 
 /* Imágenes */
 .grid-item img {
   width: auto; /* Ancho fijo */
-  height: 100vh; /* Mantiene la proporción */
+  height: 60vh; /* Mantiene la proporción */
   transition: transform 0.3s ease; /* Animación de escala */
   object-fit: cover; /* Las imágenes ocuparán todo el espacio */
   overflow: clip;
+  z-index: 30;
+  mix-blend-mode: lighten;
 }
 
 
 .grid-item h2 {
   font-family: "Denton";
   font-weight: 300 !important;
+  line-height: 90%;
   position: absolute; /* Permite superposición dentro de .grid-item */
-  font-size: 2.2em;
-  color: rgb(0, 0, 0);
-  background-color: #f5df7c;
+  font-size: 4.2em;
+  color: rgb(26, 26, 27);
   text-align: center;
   pointer-events: none; /* Impide la interacción del usuario */
   opacity: 0; /* Oculto inicialmente */
   display: flex; /* Centra el contenido dentro del cuadrado */
   justify-content: center;
   align-items: center;
-  z-index: 40;
-  width: 28.2vw; /* Ancho del cuadrado */
-  height: 60vh; /* Alto del cuadrado, igual al ancho */
-  box-sizing: border-box; /* Asegura que padding y border no afecten el tamaño */
+  z-index: 50;
+  width: 400px; /* Ancho del cuadrado */
+  height: 150px; /* Alto del cuadrado, igual al ancho */
+  box-sizing: content-box; /* Asegura que padding y border no afecten el tamaño */
   padding: 60px;
 }
 
@@ -557,6 +558,9 @@ body {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(9, 1fr);
   }
+  .grid-item {
+    width: 85vw;
+  }
 
   .container-l-wide {
     flex-direction: column;
@@ -583,7 +587,7 @@ body {
     text-align: center;
     left: 50vh;
     right: 50vh;
-    margin-top: 10px;
+    margin-top: 35px;
   }
   .logo-fondo {
     text-align: center;

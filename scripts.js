@@ -43,14 +43,14 @@ menuIcon.addEventListener("click", () => {
     gsap.to(menuIcon, {
       rotation: 0,
       duration: 0.3,
-      ease: "power1.inOut",
+      ease: "power1.out",
     });
   } else {
     // Rota el elemento 90 grados
     gsap.to(menuIcon, {
       rotation: 90,
       duration: 0.3,
-      ease: "power1.inOut",
+      ease: "power1.out",
     });
   }
   isRotated = !isRotated; // Alterna el estado de la rotación
@@ -146,7 +146,7 @@ interactiveDivs.forEach((div) => {
       // Animación del div y descripción
       gsap.to(div, {
         duration: 0.3,
-        ease: "power1.inOut",
+        ease: "power1.out",
         y: -80,
       });
 
@@ -154,7 +154,7 @@ interactiveDivs.forEach((div) => {
         opacity: 1,
         y: 30,
         duration: 0.3,
-        ease: "power1.inOut",
+        ease: "power1.out",
       });
 
       // Animación del <p>
@@ -162,7 +162,7 @@ interactiveDivs.forEach((div) => {
         opacity: 1,
         y: -80,
         duration: 0.3,
-        ease: "power2.inOut",
+        ease: "power2.out",
       });
     }
   });
@@ -174,14 +174,14 @@ interactiveDivs.forEach((div) => {
       gsap.to(div, {
         y: 0,
         duration: 0.3,
-        ease: "power1.inOut",
+        ease: "power1.out",
       });
 
       gsap.to(description, {
         opacity: 0,
         y: 0,
         duration: 0.3,
-        ease: "power1.inOut",
+        ease: "power1.out",
       });
 
       // Revertir animación del <p>
@@ -189,7 +189,7 @@ interactiveDivs.forEach((div) => {
         opacity: 0,
         y: 0,
         duration: 0.5,
-        ease: "power2.inOut",
+        ease: "power2.out",
       });
     }
   });
@@ -201,14 +201,14 @@ interactiveDivs.forEach((div) => {
       gsap.to(div, {
         y: -80,
         duration: 0.3,
-        ease: "power1.inOut",
+        ease: "power1.out",
       });
 
       gsap.to(description, {
         opacity: 1,
         y: 30,
         duration: 0.3,
-        ease: "power1.inOut",
+        ease: "power1.out",
       });
 
       // Animación del <p>
@@ -216,21 +216,21 @@ interactiveDivs.forEach((div) => {
         opacity: 1,
         y: -80,
         duration: 0.3,
-        ease: "power2.inOut",
+        ease: "power2.out",
       });
     } else {
       // Revertir animación al hacer clic de nuevo
       gsap.to(div, {
         y: 0,
         duration: 0.3,
-        ease: "power1.inOut",
+        ease: "power1.out",
       });
 
       gsap.to(description, {
         opacity: 0,
         y: 0,
         duration: 0.3,
-        ease: "power1.inOut",
+        ease: "power1.out",
       });
 
       // Revertir animación del <p>
@@ -238,7 +238,7 @@ interactiveDivs.forEach((div) => {
         opacity: 0,
         y: 0,
         duration: 0.3,
-        ease: "power2.inOut",
+        ease: "power2.out",
       });
     }
 
@@ -251,11 +251,21 @@ interactiveDivs.forEach((div) => {
 // IMAGENES GALERÍA ANIMACIÓN INFINITA
 // Animación flotante para los grid-items
 
-// Seleccionar todos los grid-items
-const gridItems = document.querySelectorAll(".grid-item");
+// Seleccionar los elementos grid-item
+const gridItems = document.querySelectorAll(".grid-item"); 
 
-// Seleccionar las imágenes y los grid-items
-const gridImages = document.querySelectorAll(".grid-item img");
+// Iterar sobre cada grid-item y aplicar la animación con GSAP
+gridItems.forEach(item => {
+  item.addEventListener("mouseenter", () => {
+    // Cambiar el fondo a amarillo cuando el cursor entra
+    gsap.to(item, { backgroundColor: "#fff6a5", duration: 0.55 });
+  });
+
+  item.addEventListener("mouseleave", () => {
+    // Volver al color original cuando el cursor sale
+    gsap.to(item, { backgroundColor: "", duration: 0.55 });
+  });
+});
 
 // Agregar animaciones al hover
 gridItems.forEach((item) => {
