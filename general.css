@@ -571,11 +571,11 @@ body {
   .content {
     flex-direction: column; /* Cambia la dirección a vertical */
     margin-top: 160px;
-    gap: 52px;
+    gap: 54px;
   }
 
   .descripcion-1 {
-    margin-top: 80px;
+    margin-top: 100px;
     width: 320px;
   }
   .interactive-div {
@@ -607,6 +607,6 @@ body {
   }
   .content {
     flex-direction: column; /* Cambia la dirección a vertical */
-    gap: 85px;
+    gap: 115px;
   }
 }
