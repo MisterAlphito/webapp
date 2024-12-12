@@ -152,8 +152,8 @@ body {
 .container-wide {
   position: relative;
   width: 100%; /* Ocupa el 100% del ancho de la pantalla */
-  height: 115vh; /* Ajusta la altura según lo necesario */
-  background-color: #5c5b5b; /* Fondo azul claro */
+  height: auto; /* Ajusta la altura según lo necesario */
+  background-color: #b0bcf5; /* Fondo azul claro */
   display: flex;
   justify-items: center;
   align-items: center;
@@ -291,7 +291,7 @@ body {
   line-height: 120%;
   font-weight: 300;
   font-style: normal !important;
-  font-size: clamp(1.8em, 3.5vw, 1.5em);
+  font-size: clamp(1.5em, 3.2vw, 1.3em);
   color: #52523c;
   user-select: none; /* Impide la selección de texto */
   position: absolute;
@@ -318,9 +318,10 @@ body {
   justify-self: center;
   top: 0;
   left: 0;
-  margin: 35px;
+  margin: 42px;
   line-height: 115%;
   mix-blend-mode: multiply;
+  z-index: 50;
 
 }
 
@@ -455,18 +456,16 @@ body {
 /* Grid container */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 70px;
-  width: 100%; /* Set the grid width */
-  max-width: 1600px;
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
-  overflow: clip;
-  z-index: 60;
-  padding: 35px;
-  padding-top: 200px;
+  grid-template-columns: repeat(3, 1fr); /* Dos columnas de igual tamaño */
+  grid-template-rows: repeat(3, auto); /* Cinco filas con altura automática */
+  width: 100%; /* Ancho del contenedor */
+  height: auto; /* Altura dinámica según el contenido */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
+  z-index: 10;
+  box-sizing: border-box; /* Asegura que el padding no afecte al tamaño total */
+  padding: 0;
+  margin-top: 200px;
 }
 
 /* Grid items */
@@ -477,49 +476,45 @@ body {
   overflow: hidden;
   transition: transform 0.3s ease;
   text-decoration: none;
-  width: fit-content;
-  opacity: 0;
+  width: auto; /* Se ajusta a la celda del grid */
+  height: 60vh; /* Se ajusta dinámicamente */
+  opacity: 1; /* Asegura que sea visible */
+  z-index: inherit;
+  margin: 45px;
+  border: 2px solid #314849;
 }
+
+/* Imágenes */
+.grid-item img {
+  width: auto; /* Ancho fijo */
+  height: 100vh; /* Mantiene la proporción */
+  transition: transform 0.3s ease; /* Animación de escala */
+  object-fit: cover; /* Las imágenes ocuparán todo el espacio */
+  overflow: clip;
+}
+
 
 .grid-item h2 {
-  font-family: "Albert Sans";
-  font-weight: 500 !important;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2em;
+  font-family: "Denton";
+  font-weight: 300 !important;
+  position: absolute; /* Permite superposición dentro de .grid-item */
+  font-size: 2.2em;
   color: rgb(0, 0, 0);
   background-color: #f5df7c;
-  padding: 100px 100px;
   text-align: center;
-  pointer-events: none; /* Prevent interaction */
-  opacity: 0;
-  display: block;
-  width: 110px;
-}
-
-/* Images */
-.grid-item img {
-  width: auto; /* Scale to 20% of original width */
-  height: clamp(10rem, 2.143rem + 7.619vw, 12rem); /* Maintain aspect ratio */
-  transition: transform 0.3s ease; /* Smooth scaling */
-  overflow: hidden;
+  pointer-events: none; /* Impide la interacción del usuario */
   opacity: 0; /* Oculto inicialmente */
+  display: flex; /* Centra el contenido dentro del cuadrado */
+  justify-content: center;
+  align-items: center;
+  z-index: 40;
+  width: 28.2vw; /* Ancho del cuadrado */
+  height: 60vh; /* Alto del cuadrado, igual al ancho */
+  box-sizing: border-box; /* Asegura que padding y border no afecten el tamaño */
+  padding: 60px;
 }
 
-/* Hover effects */
-.grid-item:hover img {
-  transform-origin: center center;
-  transform: scale(1.1) !important; /* Slight enlargement on hover */
-}
 
-.grid-item:hover {
-  transform-origin: center center;
-  transform: scale(
-    1.2
-  ) !important; /* Optional: Enlarge the entire cell slightly */
-}
 
 /* Breakpoint para pantallas pequeñas */
 @media (max-width: 1400px) {
@@ -559,19 +554,14 @@ body {
 
 @media (max-width: 1000px) {
   .grid-container {
-    grid-template-columns: repeat(1, 0.6fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(9, 1fr);
-    gap: 65px;
   }
 
   .container-l-wide {
     flex-direction: column;
     display: flex;
     height: 100vh;
-  }
-
-  .container-wide {
-    height: 2200px;
   }
 
   .content {
@@ -611,14 +601,8 @@ body {
   .container-l-wide {
     height: 145vh;
   }
-  .container-wide {
-    height: 535vh;
-  }
   .content {
     flex-direction: column; /* Cambia la dirección a vertical */
     gap: 85px;
-  }
-  .grid-container {
-    gap: 45px;
   }
 }
