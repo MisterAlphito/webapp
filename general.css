@@ -46,7 +46,7 @@ body {
   mix-blend-mode: hard-light;
   opacity: 0.4;
   pointer-events: none;
-  height: 115%;
+  height: 200%;
   width: auto;
 }
 .filtro-tex-2 {
@@ -100,17 +100,18 @@ body {
   font-weight: 300;
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   font-style: normal !important;
-  font-size: clamp(6.5em, 8.5vw, 16em);
-  color: #ece163;
+  font-size: clamp(5.5em, 8.5vw, 14em);
+  color: #384041;
   user-select: none; /* Impide la selección de texto */
   position: absolute;
   text-align: center;
   justify-self: center;
-  justify-content: start;
+  justify-content: center;
   margin: 0;
-  left: 0;
   line-height: 100%;
-  mix-blend-mode: hard-light;
+  isolation: isolate;
+  mix-blend-mode: hard-light !important;
+
 }
 
 .main-container {
@@ -127,8 +128,9 @@ body {
   height: 90vh; /* Ajusta la altura según lo necesario */
   background-color: #b0bcf5; /* Fondo azul claro */
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   overflow: hidden;
 }
 
@@ -151,7 +153,7 @@ body {
   position: relative;
   width: 100%; /* Ocupa el 100% del ancho de la pantalla */
   height: 115vh; /* Ajusta la altura según lo necesario */
-  background-color: #b0bcf5; /* Fondo azul claro */
+  background-color: #5c5b5b; /* Fondo azul claro */
   display: flex;
   justify-items: center;
   align-items: center;
@@ -166,7 +168,7 @@ body {
   position: relative;
   width: 100%; /* Ocupa el 100% del ancho de la pantalla */
   height: 50vh; /* Ajusta la altura según lo necesario */
-  background-color: #e2bd79; /* Fondo azul claro */
+  background-color: rgb(171, 165, 209); /* Fondo azul claro */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,9 +179,9 @@ body {
 
 /* Borde cuadrado en el centro */
 .border-box {
-  width: 85%;
-  height: 75%;
-  border: 2px solid #062324;
+  width: 90%;
+  height: 90%;
+  border: 2px solid #577e80;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,7 +189,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: inherit;
+  z-index: 5;
   padding: 20px;
 }
 
@@ -199,7 +201,37 @@ body {
   left: 10px;
   right: 10px;
   bottom: 10px;
-  border: 2px solid #062324;
+  border: 2px solid #577e80;
+  z-index: inherit;
+  padding: 20px;
+}
+
+/* Borde cuadrado en el centro */
+.border-box-2 {
+  width: 95%;
+  height: calc(100% - 100px);
+  border: 2px solid #99b0b1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  padding: 20px;
+  mix-blend-mode: multiply;
+}
+
+/* Borde interno */
+.border-box-2::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px solid #99b0b1;
   z-index: inherit;
   padding: 20px;
 }
@@ -228,6 +260,7 @@ body {
 }
 
 .interactive-div::before {
+  padding: 200px;
   content: "";
   position: absolute;
   top: -35px; /* Amplía hacia arriba */
@@ -240,13 +273,13 @@ body {
 }
 
 /* Estilo del texto */
-.span-giratorio {
+.h2-animado-1 {
   font-family: "Denton" !important;
   line-height: 200%;
   font-weight: 300;
   font-style: normal !important;
   font-size: clamp(2em, 5.5vw, 3.2em);
-  color: #52523c;
+  color: #32343b;
   user-select: none; /* Impide la selección de texto */
   position: relative;
   transform-origin: center center; /* Punto de rotación */
@@ -255,18 +288,20 @@ body {
 }
 .texto-grande-r {
   font-family: "Denton" !important;
-  line-height: 100%;
+  line-height: 120%;
   font-weight: 300;
   font-style: normal !important;
-  font-size: clamp(1em, 4.5vw, 2.2em);
+  font-size: clamp(1.8em, 3.5vw, 1.5em);
   color: #52523c;
   user-select: none; /* Impide la selección de texto */
   position: absolute;
-  text-align: right;
-  align-self: end;
-  margin-right: 30px;
-  right: 0;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
   width: 30vw;
+  margin: 0;
+  margin-top: 350px;
+  opacity: 0;
 }
 
 /* Estilo del texto */
@@ -274,16 +309,16 @@ body {
   font-family: "Denton" !important;
   font-weight: 300;
   font-style: normal !important;
-  font-size: clamp(5.2em, 8.5vw, 16em);
-  color: #f0efe4;
+  font-size: clamp(5.2em, 5.5vw, 16em);
+  color: #6b6b60;
   user-select: none; /* Impide la selección de texto */
   position: absolute;
   text-align: center;
   align-self: center;
   justify-self: center;
-  top: 0px;
+  top: 0;
   left: 0;
-  margin: 0;
+  margin: 35px;
   line-height: 115%;
   mix-blend-mode: multiply;
 
@@ -293,7 +328,7 @@ body {
   margin-top: 50px;
   font-family: "Albert Sans";
   line-height: 135%;
-  font-size: clamp(0.55em, 3.7vw, 1.3em);
+  font-size: clamp(0.55em, 4.7vw, 1.3em);
   color: #52523c;
   opacity: 0; /* Oculto inicialmente */
   pointer-events: none; /* Evita interacción mientras esté oculto */
@@ -349,8 +384,8 @@ body {
 }
 
 .menu a {
-  font-family: "Albert Sans";
-  font-weight: 500 !important;
+  font-family: "Denton";
+  font-weight: 300 !important;
   text-decoration: none;
   color: black;
   font-size: clamp(
@@ -498,7 +533,7 @@ body {
   .cortinilla,
   .color-filtro-1 {
     width: 100%; /* Ocupa todo el ancho de la pantalla */
-    height: 120vh; /* Ajusta la altura según el contenido */
+    height: 100vh; /* Ajusta la altura según el contenido */
   }
 
   .menu {
@@ -516,6 +551,10 @@ body {
   .interactive-div {
     height: 15px;
   }
+  .texto-grande-r {
+    margin-top: 400px;
+    width: 80vw;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -528,7 +567,7 @@ body {
   .container-l-wide {
     flex-direction: column;
     display: flex;
-    height: 85vh;
+    height: 100vh;
   }
 
   .container-wide {
@@ -542,11 +581,11 @@ body {
   }
 
   .descripcion-1 {
-    margin-top: 120px;
+    margin-top: 80px;
     width: 320px;
   }
   .interactive-div {
-    height: 35px;
+    height: 45px;
   }
   .h1-standard {
     position: absolute;
@@ -554,12 +593,14 @@ body {
     text-align: center;
     left: 50vh;
     right: 50vh;
+    margin-top: 10px;
   }
   .logo-fondo {
     text-align: center;
     left: 50vh;
     right: 50vh;
   }
+
 }
 
 @media only screen and (orientation: landscape) and (max-width: 1400px) {
@@ -568,7 +609,7 @@ body {
     width: 450px;
   }
   .container-l-wide {
-    height: 150vh;
+    height: 145vh;
   }
   .container-wide {
     height: 535vh;

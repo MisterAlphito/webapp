@@ -76,7 +76,7 @@ window.addEventListener("scroll", () => {
 gsap.registerPlugin(ScrollTrigger);
 
 // Primera animación: Entrada y salida de spans
-const spans = document.querySelectorAll(".span-giratorio");
+const spans = document.querySelectorAll(".h2-animado-1");
 
 spans.forEach((span) => {
   gsap.fromTo(
@@ -97,12 +97,45 @@ spans.forEach((span) => {
   );
 });
 
-// Segunda animación: Interacción con hover o tap
+
+// Selección de elementos interactivos
 const interactiveDivs = document.querySelectorAll(".interactive-div");
 
+// Configura el Intersection Observer
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const div = entry.target;
+      const span = div.querySelector(".h2-animado-1");
+      const description = div.querySelector(".descripcion-1");
+      const textoGrande = document.querySelector(".texto-grande-r"); // Selecciona el <p>
+
+      // Cuando el elemento está dentro del viewport
+      if (entry.isIntersecting) {
+        // No hacemos nada hasta que ocurra una interacción
+      } else {
+        // Cuando el elemento sale del viewport, reinicia animaciones
+        gsap.set(div, { clearProps: "all" }); // Reinicia propiedades del div
+        gsap.set(description, { clearProps: "all" }); // Reinicia propiedades de la descripción
+        gsap.set(textoGrande, { clearProps: "all" }); // Reinicia propiedades del <p>
+      }
+    });
+  },
+  {
+    threshold: 0, // Se activa cuando el 10% del elemento es visible
+  }
+);
+
+// Observa cada elemento
+interactiveDivs.forEach((div) => observer.observe(div));
+
+
+// Animaciones de hover y clic
+
 interactiveDivs.forEach((div) => {
-  const span = div.querySelector(".span-giratorio");
+  const span = div.querySelector(".h2-animado-1");
   const description = div.querySelector(".descripcion-1");
+  const textoGrande = document.querySelector(".texto-grande-r"); // Selecciona el <p>
 
   // Estado para alternar animaciones
   let isUp = false;
@@ -110,6 +143,7 @@ interactiveDivs.forEach((div) => {
   // Animación de hover (para dispositivos de escritorio)
   div.addEventListener("mouseenter", () => {
     if (!isUp) {
+      // Animación del div y descripción
       gsap.to(div, {
         duration: 0.3,
         ease: "power1.inOut",
@@ -120,7 +154,15 @@ interactiveDivs.forEach((div) => {
         opacity: 1,
         y: 30,
         duration: 0.3,
-        ease: "power1.out",
+        ease: "power1.inOut",
+      });
+
+      // Animación del <p>
+      gsap.to(textoGrande, {
+        opacity: 1,
+        y: -80,
+        duration: 0.3,
+        ease: "power2.inOut",
       });
     }
   });
@@ -128,17 +170,26 @@ interactiveDivs.forEach((div) => {
   // Animación de salir del hover (para dispositivos de escritorio)
   div.addEventListener("mouseleave", () => {
     if (!isUp) {
+      // Revertir animación del div y descripción
       gsap.to(div, {
-        y: origin,
+        y: 0,
         duration: 0.3,
         ease: "power1.inOut",
       });
 
       gsap.to(description, {
         opacity: 0,
-        y: origin,
+        y: 0,
         duration: 0.3,
-        ease: "power1.in",
+        ease: "power1.inOut",
+      });
+
+      // Revertir animación del <p>
+      gsap.to(textoGrande, {
+        opacity: 0,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.inOut",
       });
     }
   });
@@ -146,43 +197,56 @@ interactiveDivs.forEach((div) => {
   // Animación de clic/tap (funciona en escritorio y móviles)
   div.addEventListener("click", () => {
     if (!isUp) {
-      // Rotar el div al tocarlo o hacer clic
+      // Animación al hacer clic
       gsap.to(div, {
         y: -80,
         duration: 0.3,
         ease: "power1.inOut",
       });
 
-      // Mostrar la descripción
       gsap.to(description, {
         opacity: 1,
-        y: 20,
+        y: 30,
         duration: 0.3,
-        ease: "power1.out",
+        ease: "power1.inOut",
+      });
+
+      // Animación del <p>
+      gsap.to(textoGrande, {
+        opacity: 1,
+        y: -80,
+        duration: 0.3,
+        ease: "power2.inOut",
       });
     } else {
-      // Revertir la rotación del div
+      // Revertir animación al hacer clic de nuevo
       gsap.to(div, {
         y: 0,
         duration: 0.3,
         ease: "power1.inOut",
       });
 
-      // Ocultar la descripción
       gsap.to(description, {
         opacity: 0,
         y: 0,
         duration: 0.3,
-        ease: "power1.in",
+        ease: "power1.inOut",
+      });
+
+      // Revertir animación del <p>
+      gsap.to(textoGrande, {
+        opacity: 0,
+        y: 0,
+        duration: 0.3,
+        ease: "power2.inOut",
       });
     }
 
     // Alternar estado
     isUp = !isUp;
   });
-
-  // Animación de soltar el tap (no necesaria en este caso)
 });
+
 
 // IMAGENES GALERÍA ANIMACIÓN INFINITA
 // Animación flotante para los grid-items
