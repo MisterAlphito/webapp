@@ -111,7 +111,6 @@ body {
   line-height: 100%;
   isolation: isolate;
   mix-blend-mode: hard-light !important;
-
 }
 
 .main-container {
@@ -126,7 +125,7 @@ body {
   position: relative;
   width: 50%; /* Ocupa el 100% del ancho de la pantalla */
   height: 90vh; /* Ajusta la altura según lo necesario */
-  background-color: #b0bcf5; /* Fondo azul claro */
+  background-color: rgb(243, 243, 243);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -139,7 +138,7 @@ body {
   position: relative;
   width: 50%; /* Ocupa el 100% del ancho de la pantalla */
   height: 90vh; /* Ajusta la altura según lo necesario */
-  background-color: #e2bd79; /* Fondo azul claro */
+  background-color: #e2bd79;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,7 +152,7 @@ body {
   position: relative;
   width: 100%; /* Ocupa el 100% del ancho de la pantalla */
   height: auto; /* Ajusta la altura según lo necesario */
-  background-color: #b0bcf5; /* Fondo azul claro */
+  background-color: #000000; /* Fondo azul claro */
   display: flex;
   justify-items: center;
   align-items: center;
@@ -168,7 +167,7 @@ body {
   position: relative;
   width: 100%; /* Ocupa el 100% del ancho de la pantalla */
   height: 50vh; /* Ajusta la altura según lo necesario */
-  background-color: rgb(190, 184, 231); /* Fondo azul claro */
+  background-color: rgb(243, 243, 243); /* Fondo azul claro */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -210,7 +209,7 @@ body {
 .border-box-2 {
   width: 95%;
   height: calc(100% - 100px);
-  border: 2px solid #99b0b1;
+  border: 2px solid #577e80;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -220,7 +219,6 @@ body {
   transform: translate(-50%, -50%);
   z-index: 5;
   padding: 20px;
-  mix-blend-mode: multiply;
 }
 
 /* Borde interno */
@@ -231,7 +229,7 @@ body {
   left: 10px;
   right: 10px;
   bottom: 10px;
-  border: 2px solid #99b0b1;
+  border: 2px solid #577e80;
   z-index: inherit;
   padding: 20px;
 }
@@ -272,6 +270,20 @@ body {
   pointer-events: all; /* Hace interactivo el pseudo-elemento */
 }
 
+.div-titulo {
+  display: flex; /* Activar flexbox */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  position: relative;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  margin-right: 125px;
+  margin-left: 125px;
+  width: 150px;
+  height: 300px;
+  z-index: 25;
+}
+
 /* Estilo del texto */
 .h2-animado-1 {
   font-family: "Denton" !important;
@@ -279,7 +291,7 @@ body {
   font-weight: 300;
   font-style: normal !important;
   font-size: clamp(2em, 5.5vw, 3.2em);
-  color: #32343b;
+  color: #3e4047;
   user-select: none; /* Impide la selección de texto */
   position: relative;
   transform-origin: center center; /* Punto de rotación */
@@ -292,7 +304,7 @@ body {
   font-weight: 300;
   font-style: normal !important;
   font-size: clamp(1.5em, 3.2vw, 1.3em);
-  color: #52523c;
+  color: #3e4047;
   user-select: none; /* Impide la selección de texto */
   position: absolute;
   text-align: center;
@@ -301,7 +313,6 @@ body {
   width: 30vw;
   margin: 0;
   margin-top: 350px;
-  opacity: 0;
 }
 
 /* Estilo del texto */
@@ -309,8 +320,8 @@ body {
   font-family: "Denton" !important;
   font-weight: 300;
   font-style: normal !important;
-  font-size: clamp(5.2em, 5.5vw, 16em);
-  color: #6b6b60;
+  font-size: clamp(3.2em, 2.5vw, 12em);
+  color: #577e80;
   user-select: none; /* Impide la selección de texto */
   position: absolute;
   text-align: center;
@@ -318,11 +329,9 @@ body {
   justify-self: center;
   top: 0;
   left: 0;
-  margin: 42px;
-  line-height: 115%;
-  mix-blend-mode: multiply;
+  margin: 55px;
+  line-height: 100%;
   z-index: 50;
-
 }
 
 .descripcion-1 {
@@ -426,8 +435,6 @@ body {
   height: 90vh; /* Toda la altura del viewport */
   overflow: hidden;
   position: relative;
-  right: 0;
-  top: 0;
   transition: all 0.3s ease; /* Suaviza la transición al cambiar de posición */
 }
 
@@ -464,8 +471,7 @@ body {
   align-items: center; /* Centra los elementos verticalmente */
   z-index: 40;
   box-sizing: border-box; /* Asegura que el padding no afecte al tamaño total */
-  padding: 50px;
-  margin-top: 150px;
+  padding: 0px;
 }
 
 /* Grid items */
@@ -479,21 +485,19 @@ body {
   width: auto; /* Se ajusta a la celda del grid */
   height: 60vh; /* Se ajusta dinámicamente */
   opacity: 1; /* Asegura que sea visible */
-  margin: 20px;
   z-index: 50;
 }
 
 /* Imágenes */
 .grid-item img {
   width: auto; /* Ancho fijo */
-  height: 60vh; /* Mantiene la proporción */
+  height: 65vh; /* Mantiene la proporción */
   transition: transform 0.3s ease; /* Animación de escala */
   object-fit: cover; /* Las imágenes ocuparán todo el espacio */
   overflow: clip;
   z-index: 30;
   mix-blend-mode: lighten;
 }
-
 
 .grid-item h2 {
   font-family: "Denton";
@@ -514,8 +518,6 @@ body {
   box-sizing: content-box; /* Asegura que padding y border no afecten el tamaño */
   padding: 60px;
 }
-
-
 
 /* Breakpoint para pantallas pequeñas */
 @media (max-width: 1400px) {
@@ -559,7 +561,7 @@ body {
     grid-template-rows: repeat(9, 1fr);
   }
   .grid-item {
-    width: 85vw;
+    width: 100vw;
   }
 
   .container-l-wide {
@@ -589,12 +591,6 @@ body {
     right: 50vh;
     margin-top: 35px;
   }
-  .logo-fondo {
-    text-align: center;
-    left: 50vh;
-    right: 50vh;
-  }
-
 }
 
 @media only screen and (orientation: landscape) and (max-width: 1400px) {

@@ -78,7 +78,7 @@ gsap.registerPlugin(ScrollTrigger);
 // Primera animación: Entrada y salida de spans
 const spans = document.querySelectorAll(".h2-animado-1");
 
-spans.forEach((span) => {
+/*spans.forEach((span) => {
   gsap.fromTo(
     span,
     { x: -200, opacity: 0 }, // Fuera de la pantalla
@@ -95,40 +95,23 @@ spans.forEach((span) => {
       },
     }
   );
-});
-
+});*/
 
 // Selección de elementos interactivos
 const interactiveDivs = document.querySelectorAll(".interactive-div");
 
 // Configura el Intersection Observer
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      const div = entry.target;
-      const span = div.querySelector(".h2-animado-1");
-      const description = div.querySelector(".descripcion-1");
-      const textoGrande = document.querySelector(".texto-grande-r"); // Selecciona el <p>
-
-      // Cuando el elemento está dentro del viewport
-      if (entry.isIntersecting) {
-        // No hacemos nada hasta que ocurra una interacción
-      } else {
-        // Cuando el elemento sale del viewport, reinicia animaciones
-        gsap.set(div, { clearProps: "all" }); // Reinicia propiedades del div
-        gsap.set(description, { clearProps: "all" }); // Reinicia propiedades de la descripción
-        gsap.set(textoGrande, { clearProps: "all" }); // Reinicia propiedades del <p>
-      }
-    });
-  },
-  {
-    threshold: 0, // Se activa cuando el 10% del elemento es visible
-  }
-);
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const div = entry.target;
+    const span = div.querySelector(".h2-animado-1");
+    const description = div.querySelector(".descripcion-1");
+    const textoGrande = document.querySelector(".texto-grande-r"); // Selecciona el <p>
+  });
+});
 
 // Observa cada elemento
 interactiveDivs.forEach((div) => observer.observe(div));
-
 
 // Animaciones de hover y clic
 
@@ -142,29 +125,19 @@ interactiveDivs.forEach((div) => {
 
   // Animación de hover (para dispositivos de escritorio)
   div.addEventListener("mouseenter", () => {
-    if (!isUp) {
-      // Animación del div y descripción
-      gsap.to(div, {
-        duration: 0.3,
-        ease: "power1.out",
-        y: -80,
-      });
+    // Animación del div y descripción
+    gsap.to(div, {
+      duration: 0.3,
+      ease: "power1.out",
+      y: -80,
+    });
 
-      gsap.to(description, {
-        opacity: 1,
-        y: 30,
-        duration: 0.3,
-        ease: "power1.out",
-      });
-
-      // Animación del <p>
-      gsap.to(textoGrande, {
-        opacity: 1,
-        y: -80,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    }
+    gsap.to(description, {
+      opacity: 1,
+      y: 30,
+      duration: 0.3,
+      ease: "power1.out",
+    });
   });
 
   // Animación de salir del hover (para dispositivos de escritorio)
@@ -182,14 +155,6 @@ interactiveDivs.forEach((div) => {
         y: 0,
         duration: 0.3,
         ease: "power1.out",
-      });
-
-      // Revertir animación del <p>
-      gsap.to(textoGrande, {
-        opacity: 0,
-        y: 0,
-        duration: 0.5,
-        ease: "power2.out",
       });
     }
   });
@@ -247,15 +212,11 @@ interactiveDivs.forEach((div) => {
   });
 });
 
-
-// IMAGENES GALERÍA ANIMACIÓN INFINITA
-// Animación flotante para los grid-items
-
 // Seleccionar los elementos grid-item
-const gridItems = document.querySelectorAll(".grid-item"); 
+const gridItems = document.querySelectorAll(".grid-item");
 
 // Iterar sobre cada grid-item y aplicar la animación con GSAP
-gridItems.forEach(item => {
+gridItems.forEach((item) => {
   item.addEventListener("mouseenter", () => {
     // Cambiar el fondo a amarillo cuando el cursor entra
     gsap.to(item, { backgroundColor: "#fff6a5", duration: 0.55 });
