@@ -106,7 +106,6 @@ const observer = new IntersectionObserver((entries) => {
     const div = entry.target;
     const span = div.querySelector(".h2-animado-1");
     const description = div.querySelector(".descripcion-1");
-    const textoGrande = document.querySelector(".texto-grande-r"); // Selecciona el <p>
   });
 });
 
@@ -118,7 +117,6 @@ interactiveDivs.forEach((div) => observer.observe(div));
 interactiveDivs.forEach((div) => {
   const span = div.querySelector(".h2-animado-1");
   const description = div.querySelector(".descripcion-1");
-  const textoGrande = document.querySelector(".texto-grande-r"); // Selecciona el <p>
 
   // Estado para alternar animaciones
   let isUp = false;
@@ -177,12 +175,6 @@ interactiveDivs.forEach((div) => {
       });
 
       // Animación del <p>
-      gsap.to(textoGrande, {
-        opacity: 1,
-        y: -80,
-        duration: 0.3,
-        ease: "power2.out",
-      });
     } else {
       // Revertir animación al hacer clic de nuevo
       gsap.to(div, {
@@ -196,14 +188,6 @@ interactiveDivs.forEach((div) => {
         y: 0,
         duration: 0.3,
         ease: "power1.out",
-      });
-
-      // Revertir animación del <p>
-      gsap.to(textoGrande, {
-        opacity: 0,
-        y: 0,
-        duration: 0.3,
-        ease: "power2.out",
       });
     }
 

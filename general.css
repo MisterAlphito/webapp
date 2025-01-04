@@ -123,12 +123,12 @@ body {
 /* Caja principal Left */
 .container {
   position: relative;
-  width: 50%; /* Ocupa el 100% del ancho de la pantalla */
+  width: 50%; /* Ocupa el 100% del de la pantalla */
   height: 90vh; /* Ajusta la altura según lo necesario */
   background-color: rgb(243, 243, 243);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   overflow: hidden;
 }
@@ -151,8 +151,8 @@ body {
 .container-wide {
   position: relative;
   width: 100%; /* Ocupa el 100% del ancho de la pantalla */
-  height: auto; /* Ajusta la altura según lo necesario */
-  background-color: #000000; /* Fondo azul claro */
+  height: max-content; /* Ajusta la altura según lo necesario */
+  background-color: rgb(243, 243, 243); /* Fondo azul claro */
   display: flex;
   justify-items: center;
   align-items: center;
@@ -178,8 +178,8 @@ body {
 
 /* Borde cuadrado en el centro */
 .border-box {
-  width: 90%;
-  height: 90%;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
   border: 2px solid #577e80;
   display: flex;
   justify-content: center;
@@ -189,49 +189,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
-  padding: 20px;
-}
-
-/* Borde interno */
-.border-box::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 2px solid #577e80;
-  z-index: inherit;
-  padding: 20px;
-}
-
-/* Borde cuadrado en el centro */
-.border-box-2 {
-  width: 95%;
-  height: calc(100% - 100px);
-  border: 2px solid #577e80;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 5;
-  padding: 20px;
-}
-
-/* Borde interno */
-.border-box-2::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 2px solid #577e80;
-  z-index: inherit;
-  padding: 20px;
 }
 
 /* Contenedor principal */
@@ -290,7 +247,7 @@ body {
   line-height: 200%;
   font-weight: 300;
   font-style: normal !important;
-  font-size: clamp(2em, 5.5vw, 3.2em);
+  font-size: clamp(1.2em, 4.5vw, 2.2em);
   color: #3e4047;
   user-select: none; /* Impide la selección de texto */
   position: relative;
@@ -303,16 +260,16 @@ body {
   line-height: 120%;
   font-weight: 300;
   font-style: normal !important;
-  font-size: clamp(1.5em, 3.2vw, 1.3em);
+  font-size: clamp(1.4em, 3.2vw, 1.8em);
   color: #3e4047;
   user-select: none; /* Impide la selección de texto */
-  position: absolute;
+  position: relative;
   text-align: center;
   align-self: center;
   justify-self: center;
   width: 30vw;
-  margin: 0;
-  margin-top: 350px;
+  margin-top: 35vh;
+  margin-bottom: 30vh;
 }
 
 /* Estilo del texto */
@@ -329,16 +286,17 @@ body {
   justify-self: center;
   top: 0;
   left: 0;
-  margin: 55px;
+  margin: 40px;
   line-height: 100%;
   z-index: 50;
+  white-space: nowrap;
 }
 
 .descripcion-1 {
   margin-top: 50px;
   font-family: "Albert Sans";
   line-height: 135%;
-  font-size: clamp(0.55em, 4.7vw, 1.3em);
+  font-size: clamp(1em, 1.7vw, 1.3em);
   color: #242325;
   opacity: 0; /* Oculto inicialmente */
   pointer-events: none; /* Evita interacción mientras esté oculto */
@@ -355,7 +313,7 @@ body {
 /* Estilo del botón de hamburguesa */
 .menu-icon {
   position: fixed;
-  top: 10px;
+  top: 20px;
   right: 10px;
   z-index: 210;
   cursor: pointer;
@@ -466,12 +424,14 @@ body {
   grid-template-columns: repeat(3, 1fr); /* Dos columnas de igual tamaño */
   grid-template-rows: repeat(3, auto); /* Cinco filas con altura automática */
   width: 100%; /* Ancho del contenedor */
-  height: auto; /* Altura dinámica según el contenido */
+  height: 35%; /* Altura dinámica según el contenido */
   justify-content: center; /* Centra los elementos horizontalmente */
   align-items: center; /* Centra los elementos verticalmente */
   z-index: 40;
   box-sizing: border-box; /* Asegura que el padding no afecte al tamaño total */
-  padding: 0px;
+  gap: 5px;
+  padding: 40px;
+  margin-top: 100px;
 }
 
 /* Grid items */
@@ -483,7 +443,7 @@ body {
   transition: transform 0.3s ease;
   text-decoration: none;
   width: auto; /* Se ajusta a la celda del grid */
-  height: 60vh; /* Se ajusta dinámicamente */
+  height: 25vh; /* Se ajusta dinámicamente */
   opacity: 1; /* Asegura que sea visible */
   z-index: 50;
 }
@@ -504,7 +464,7 @@ body {
   font-weight: 300 !important;
   line-height: 90%;
   position: absolute; /* Permite superposición dentro de .grid-item */
-  font-size: 4.2em;
+  font-size: 2em;
   color: rgb(26, 26, 27);
   text-align: center;
   pointer-events: none; /* Impide la interacción del usuario */
@@ -513,7 +473,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 50;
-  width: 400px; /* Ancho del cuadrado */
+  width: 200px; /* Ancho del cuadrado */
   height: 150px; /* Alto del cuadrado, igual al ancho */
   box-sizing: content-box; /* Asegura que padding y border no afecten el tamaño */
   padding: 60px;
@@ -550,20 +510,15 @@ body {
     height: 15px;
   }
   .texto-grande-r {
-    margin-top: 400px;
-    width: 80vw;
+    width: 60vw;
+    text-align: center;
+    align-self: center;
+    margin-top: 40vh;
+    margin-bottom: 30vh;
   }
 }
 
 @media (max-width: 1000px) {
-  .grid-container {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(9, 1fr);
-  }
-  .grid-item {
-    width: 100vw;
-  }
-
   .container-l-wide {
     flex-direction: column;
     display: flex;
@@ -578,7 +533,7 @@ body {
 
   .descripcion-1 {
     margin-top: 100px;
-    width: 320px;
+    width: 260px;
   }
   .interactive-div {
     height: 45px;
@@ -589,7 +544,6 @@ body {
     text-align: center;
     left: 50vh;
     right: 50vh;
-    margin-top: 35px;
   }
 }
 
