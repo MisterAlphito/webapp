@@ -100,100 +100,38 @@ const spans = document.querySelectorAll(".h2-animado-1");
 // Selección de elementos interactivos
 const interactiveDivs = document.querySelectorAll(".interactive-div");
 
-// Configura el Intersection Observer
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const div = entry.target;
-    const span = div.querySelector(".h2-animado-1");
-    const description = div.querySelector(".descripcion-1");
-  });
-});
-
-// Observa cada elemento
-interactiveDivs.forEach((div) => observer.observe(div));
-
-// Animaciones de hover y clic
-
 interactiveDivs.forEach((div) => {
-  const span = div.querySelector(".h2-animado-1");
   const description = div.querySelector(".descripcion-1");
+  const span = div.querySelector(".h2-animado-1");
 
-  // Estado para alternar animaciones
-  let isUp = false;
-
-  // Animación de hover (para dispositivos de escritorio)
-  div.addEventListener("mouseenter", () => {
-    // Animación del div y descripción
-    gsap.to(div, {
-      duration: 0.3,
-      ease: "power1.out",
-      y: -80,
-    });
-
-    gsap.to(description, {
+  // Configuración de GSAP + ScrollTrigger
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: div, // El elemento que activa el parallax
+        start: "top 75%", // Comienza cuando el top del div llega al 80% de la altura de la pantalla
+        end: "bottom 65%", // Termina cuando el bottom del div llega al 50% de la pantalla
+        scrub: 0.1, // Sincroniza con el scroll de manera gradual
+      },
+    })
+    // Animación del span (h2)
+    .to(span, {
+      y: -60, // Movimiento hacia arriba (más pronunciado)
       opacity: 1,
-      y: 30,
-      duration: 0.3,
-      ease: "power1.out",
-    });
-  });
-
-  // Animación de salir del hover (para dispositivos de escritorio)
-  div.addEventListener("mouseleave", () => {
-    if (!isUp) {
-      // Revertir animación del div y descripción
-      gsap.to(div, {
-        y: 0,
-        duration: 0.3,
-        ease: "power1.out",
-      });
-
-      gsap.to(description, {
-        opacity: 0,
-        y: 0,
-        duration: 0.3,
-        ease: "power1.out",
-      });
-    }
-  });
-
-  // Animación de clic/tap (funciona en escritorio y móviles)
-  div.addEventListener("click", () => {
-    if (!isUp) {
-      // Animación al hacer clic
-      gsap.to(div, {
-        y: -80,
-        duration: 0.3,
-        ease: "power1.out",
-      });
-
-      gsap.to(description, {
+      duration: 0.01, // Duración suave
+      ease: "none",
+    })
+    // Animación de la descripción
+    .to(
+      description,
+      {
+        y: 30, // Movimiento hacia abajo
         opacity: 1,
-        y: 30,
-        duration: 0.3,
-        ease: "power1.out",
-      });
-
-      // Animación del <p>
-    } else {
-      // Revertir animación al hacer clic de nuevo
-      gsap.to(div, {
-        y: 0,
-        duration: 0.3,
-        ease: "power1.out",
-      });
-
-      gsap.to(description, {
-        opacity: 0,
-        y: 0,
-        duration: 0.3,
-        ease: "power1.out",
-      });
-    }
-
-    // Alternar estado
-    isUp = !isUp;
-  });
+        duration: 0.01,
+        ease: "none",
+      },
+      "<" // Se ejecuta al mismo tiempo que el anterior
+    );
 });
 
 // Seleccionar los elementos grid-item
@@ -233,4 +171,80 @@ gridItems.forEach((item) => {
       ease: "power1.in",
     });
   });
+});
+
+gridItems.forEach((item) => {
+  // Configuración de GSAP + ScrollTrigger
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: item, // Cada .grid-item será el activador
+        start: "top 95%", // Cuando el elemento entra en la vista
+        end: "top 55%", // Cuando el elemento llega al centro de la pantalla
+        scrub: true, // Proporcional al scroll
+      },
+    })
+    .to(item, {
+      height: "25vh", // Altura final
+      ease: "none", // Movimiento directo, sin suavidad
+    });
+});
+
+// Selección de elementos .grid-item h2
+const gridItemHeadings = document.querySelectorAll(".grid-item h2");
+
+gridItemHeadings.forEach((heading) => {
+  // Configuración de GSAP + ScrollTrigger
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: heading, // Cada h2 dentro de .grid-item será el activador
+        start: "top 95%", // Cuando el elemento entra en la vista
+        end: "top 55%", // Cuando el elemento llega al centro de la pantalla
+        scrub: true, // Proporcional al scroll
+      },
+    })
+    .to(heading, {
+      fontSize: "2em", // Tamaño final de la fuente
+      ease: "none", // Movimiento directo, sin suavidad
+    });
+});
+
+// Seleccionar todos los elementos con la clase .cortinilla
+const cortinillas = document.querySelectorAll(".cortinilla");
+
+// Iterar sobre cada elemento y aplicar la animación
+cortinillas.forEach((item) => {
+  // Configuración de GSAP + ScrollTrigger
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: item, // Cada .cortinilla será el activador
+        start: "top 99%", // Cuando el elemento entra en la vista (arriba del 95% de la pantalla)
+        end: "top 50%", // Cuando el elemento llega al centro de la pantalla
+        scrub: true, // Hacer la animación proporcional al scroll
+      },
+    })
+    .to(item, {
+      height: "90vh", // Altura final (la animación de altura será a 90vh)
+      ease: "none", // Movimiento directo, sin suavidad
+    });
+});
+
+// Iterar sobre cada elemento y aplicar la animación
+imagenes.forEach((item) => {
+  // Configuración de GSAP + ScrollTrigger
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: item, // Cada .imagenes será el activador
+        start: "top 99%", // Cuando el elemento entra en la vista (arriba del 99% de la pantalla)
+        end: "top 50%", // Cuando el elemento llega al centro de la pantalla
+        scrub: true, // Hacer la animación proporcional al scroll
+      },
+    })
+    .to(item, {
+      height: "100vh", // Altura final (la animación de altura será a 90vh)
+      ease: "none", // Movimiento directo, sin suavidad
+    });
 });
