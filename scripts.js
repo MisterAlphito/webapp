@@ -97,26 +97,41 @@ const spans = document.querySelectorAll(".h2-animado-1");
   );
 });*/
 
-// Selección de elementos interactivos
+// Asegúrate de que GSAP y ScrollTrigger están correctamente registrados
+gsap.registerPlugin(ScrollTrigger);
+
+// Selección de todos los divs interactivos
 const interactiveDivs = document.querySelectorAll(".interactive-div");
 
 interactiveDivs.forEach((div) => {
   const description = div.querySelector(".descripcion-1");
   const span = div.querySelector(".h2-animado-1");
 
-  // Configuración de GSAP + ScrollTrigger
+  // Configuración de GSAP + ScrollTrigger para cada elemento
   gsap
     .timeline({
       scrollTrigger: {
-        trigger: div, // El elemento que activa el parallax
-        start: "top 75%", // Comienza cuando el top del div llega al 80% de la altura de la pantalla
-        end: "bottom 65%", // Termina cuando el bottom del div llega al 50% de la pantalla
-        scrub: 0.1, // Sincroniza con el scroll de manera gradual
+        trigger: div, // Cada div interactivo tiene su propio trigger
+        start: "top 75%", // Comienza cuando el top del div llega al 75% de la pantalla
+        end: "bottom 65%", // Termina cuando el bottom del div llega al 65% de la pantalla
+        scrub: 0.1, // Sincroniza con el scroll
+        onUpdate: (self) => {
+          // Se ejecuta cada vez que el scroll se actualiza
+          const currentPosition = div.getBoundingClientRect(); // Obtener la posición actual del div
+          console.log(
+            `Posición dinámica de ${div.className}:`,
+            currentPosition
+          );
+
+          // Aquí es donde realmente puedes hacer que las animaciones se actualicen dinámicamente
+          const progress = self.progress; // La posición del trigger con respecto al desplazamiento
+          console.log("Progress", progress);
+        },
       },
     })
     // Animación del span (h2)
     .to(span, {
-      y: -60, // Movimiento hacia arriba (más pronunciado)
+      y: -44, // Movimiento hacia arriba
       opacity: 1,
       duration: 0.01, // Duración suave
       ease: "none",
@@ -125,12 +140,12 @@ interactiveDivs.forEach((div) => {
     .to(
       description,
       {
-        y: 30, // Movimiento hacia abajo
+        y: 22, // Movimiento hacia abajo
         opacity: 1,
         duration: 0.01,
         ease: "none",
       },
-      "<" // Se ejecuta al mismo tiempo que el anterior
+      "<" // Se ejecuta al mismo tiempo que la animación anterior
     );
 });
 
@@ -179,8 +194,8 @@ gridItems.forEach((item) => {
     .timeline({
       scrollTrigger: {
         trigger: item, // Cada .grid-item será el activador
-        start: "top 95%", // Cuando el elemento entra en la vista
-        end: "top 55%", // Cuando el elemento llega al centro de la pantalla
+        start: "top 93%", // Cuando el elemento entra en la vista
+        end: "top 70%", // Cuando el elemento llega al centro de la pantalla
         scrub: true, // Proporcional al scroll
       },
     })

@@ -55,12 +55,14 @@
         <div>
           <h1 class="h1-standard">Dovus-V</h1>
         </div>
-        <p class="texto-grande-r">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
+        <div>
+          <h2 class="texto-grande-r">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </h2>
+        </div>
       </div>
 
       <!--<div class="color-filtro-1"></div>-->
@@ -141,8 +143,6 @@
 
     <div class="main-container">
       <div class="container-wide">
-        <h1 class="h1-standard">Proyectos</h1>
-        <div class="border-box"></div>
         <div class="grid-container">
           <a href="#" class="grid-item">
             <img
@@ -209,28 +209,140 @@
           </a>
         </div>
       </div>
+
       <div class="main-container">
         <div class="container-l-wide">
           <div class="border-box"></div>
           <h1 class="h1-standard">Experiencia</h1>
-          <p class="texto-alternado">Texto 1</p>
-          <p class="texto-alternado">Texto 2</p>
-          <p class="texto-alternado">Texto 3</p>
-          <p class="texto-alternado">Texto 4</p>
-          <p class="texto-alternado">Texto 5</p>
+          <div class="content">
+            <div class="interactive-div">
+              <h1 class="h2-animado-1">Maquetación</h1>
+              <p class="descripcion-1">
+                De estilo clásico y directo. Orientado a proyectos digitales con
+                autenticidad.
+              </p>
+            </div>
+            <div class="interactive-div">
+              <h1 class="h2-animado-1">Grapher E-Sports</h1>
+              <p class="descripcion-1">
+                De estilo clásico y directo. Orientado a proyectos digitales con
+                autenticidad.
+              </p>
+            </div>
+            <div class="interactive-div">
+              <h1 class="h2-animado-1">Artistas musicales</h1>
+              <p class="descripcion-1">
+                De estilo clásico y directo. Orientado a proyectos digitales con
+                autenticidad.
+              </p>
+            </div>
+            <div class="interactive-div">
+              <h1 class="h2-animado-1">Ilustración freelance</h1>
+              <p class="descripcion-1">
+                De estilo clásico y directo. Orientado a proyectos digitales con
+                autenticidad.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="content"></div>
       </div>
     </div>
+
     <div class="main-container">
       <div class="cortinilla">
-        <div class="contents-box-img-vid"></div>
+        <div class="contents-box-img-vid">
+          <div
+            style="
+              position: relative;
+              width: 100%;
+              height: 100vh;
+              overflow: hidden;
+            "
+          >
+            <iframe
+              src="https://www.youtube.com/embed/qNVZ1JBwLHA?autoplay=1&controls=0&mute=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&loop=1&playlist=qNVZ1JBwLHA&fs=0&quality=high"
+              title="Say Goodbye - 25fps/1440p"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              style="
+                position: absolute;
+                top: -50px;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                pointer-events: none;
+                transform: scale(1.6);
+              "
+            ></iframe>
+          </div>
+        </div>
       </div>
       <div class="container">
         <div class="border-box"></div>
 
-        <div class="div-titulo">
-          <h1 class="logo-fondo">Diseño</h1>
+        <h1 class="logo-fondo">Motion Graphics</h1>
+      </div>
+      <div class="main-container">
+        <div class="form-container">
+          <div class="border-box"></div>
+          <h1 class="h1-standard">Formulario de Contacto</h1>
+          <form action="/enviar-formulario" method="POST">
+            <!-- Primera fila -->
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+                placeholder="Escribe tu nombre"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="correo">E-Mail</label>
+              <input
+                type="email"
+                id="correo"
+                name="correo"
+                required
+                placeholder="Escribe tu correo"
+              />
+            </div>
+
+            <!-- Segunda fila -->
+            <div class="form-group">
+              <label for="categoria">Selecciona una categoría:</label>
+              <select id="categoria" name="categoria" required>
+                <option value="" disabled selected>
+                  Selecciona una categoría
+                </option>
+                <option value="soporte">Maquetación editorial</option>
+                <option value="consultas">Maquetación digital</option>
+                <option value="colaboraciones">
+                  Motion graphics tipográfico
+                </option>
+                <option value="colaboraciones">Edición creativa</option>
+                <option value="colaboraciones">Ilustración</option>
+                <option value="colaboraciones">Ilustración histórica</option>
+                <option value="colaboraciones">Otros servicios</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje:</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                required
+                placeholder="Escribe tu mensaje aquí"
+              ></textarea>
+            </div>
+          </form>
+          <button type="submit">Enviar</button>
         </div>
       </div>
 
