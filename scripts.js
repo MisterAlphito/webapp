@@ -1,3 +1,5 @@
+// CERRAR MENU EN CLICK
+
 //CORTINILLA
 
 const imagenes = document.querySelector(".imagenes");
@@ -56,47 +58,6 @@ menuIcon.addEventListener("click", () => {
   isRotated = !isRotated; // Alterna el estado de la rotación
 });
 
-//MUÑECO QUE APARECE
-
-// Función para manejar el desplazamiento y mostrar/ocultar el elemento
-window.addEventListener("scroll", () => {
-  const placeholder = document.querySelector(".placeholder");
-  const scrollPosition = window.scrollY;
-
-  // Verificar si el desplazamiento está dentro del rango
-  if (scrollPosition >= 1000 && scrollPosition <= 2600) {
-    placeholder.style.transition = "transform 2s ease-in-out";
-    placeholder.style.transform = "translate(70%, -50%)"; // Mueve al centro de la pantalla
-  } else {
-    placeholder.style.transition = "transform 2s ease-in-out";
-    placeholder.style.transform = "translate(120%, -50%)"; // Mueve al centro de la pantalla
-  }
-});
-
-gsap.registerPlugin(ScrollTrigger);
-
-// Primera animación: Entrada y salida de spans
-const spans = document.querySelectorAll(".h2-animado-1");
-
-/*spans.forEach((span) => {
-  gsap.fromTo(
-    span,
-    { x: -200, opacity: 0 }, // Fuera de la pantalla
-    {
-      x: 0,
-      opacity: 1,
-      duration: 2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: span,
-        start: "top 105%",
-        end: "top -10%",
-        toggleActions: "play reverse play reverse", // Animación en ambas direcciones
-      },
-    }
-  );
-});*/
-
 // Asegúrate de que GSAP y ScrollTrigger están correctamente registrados
 gsap.registerPlugin(ScrollTrigger);
 
@@ -112,8 +73,8 @@ interactiveDivs.forEach((div) => {
     .timeline({
       scrollTrigger: {
         trigger: div, // Cada div interactivo tiene su propio trigger
-        start: "top 75%", // Comienza cuando el top del div llega al 75% de la pantalla
-        end: "bottom 65%", // Termina cuando el bottom del div llega al 65% de la pantalla
+        start: "top 80%", // Comienza cuando el top del div llega al 75% de la pantalla
+        end: "bottom 70%", // Termina cuando el bottom del div llega al 65% de la pantalla
         scrub: 0.1, // Sincroniza con el scroll
         onUpdate: (self) => {
           // Se ejecuta cada vez que el scroll se actualiza
@@ -156,7 +117,7 @@ const gridItems = document.querySelectorAll(".grid-item");
 gridItems.forEach((item) => {
   item.addEventListener("mouseenter", () => {
     // Cambiar el fondo a amarillo cuando el cursor entra
-    gsap.to(item, { backgroundColor: "#fff6a5", duration: 0.55 });
+    gsap.to(item, { backgroundColor: "#577e80", duration: 0.55 });
   });
 
   item.addEventListener("mouseleave", () => {
@@ -172,7 +133,7 @@ gridItems.forEach((item) => {
   item.addEventListener("mouseenter", () => {
     // Animar la opacidad y posición del texto
     gsap.to(h2, {
-      opacity: 0.85,
+      opacity: 1,
       duration: 0.3,
       ease: "power1.out",
     });
@@ -214,8 +175,8 @@ gridItemHeadings.forEach((heading) => {
     .timeline({
       scrollTrigger: {
         trigger: heading, // Cada h2 dentro de .grid-item será el activador
-        start: "top 95%", // Cuando el elemento entra en la vista
-        end: "top 55%", // Cuando el elemento llega al centro de la pantalla
+        start: "top 93%", // Cuando el elemento entra en la vista
+        end: "top 70%", // Cuando el elemento llega al centro de la pantalla
         scrub: true, // Proporcional al scroll
       },
     })

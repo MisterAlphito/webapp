@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <link rel="icon" href="./imgs/favicon.svg" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dovus-V</title>
+    <title>Manuel I. de Val</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,13 +19,52 @@
       href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400&display=swap"
       rel="stylesheet"
     />
+    <!-- Favicons -->
+    <link rel="icon" href="icons/favicon.ico" sizes="48x48" type="image/ico" />
+    <link
+      rel="icon-x"
+      href="icons/favicon-16x16.png"
+      sizes="16x16"
+      type="image/png"
+    />
+
+    <link
+      rel="icon"
+      href="icons/favicon-32x32.png"
+      sizes="32x32"
+      type="image/png"
+    />
+
+    <link
+      rel="icon"
+      href="icons/apple-touch-icon-180x180.png"
+      sizes="180x180"
+      type="image/png"
+    />
+
+    <link
+      rel="icon"
+      href="icons/favicon-192x192.png"
+      sizes="192x192"
+      type="image/png"
+    />
+    <link
+      rel="icon"
+      href="icons/android-chrome-512x512.png"
+      sizes="512x512"
+      type="image/png"
+    />
+    <link rel="manifest" href="manifest.json" />
   </head>
 
   <body>
-    <div class="main-container">
+    <div class="main-container" id="Landing">
       <div class="border-box"></div>
       <div class="container-full">
-        <h1 class="titulo-grande">Bienvenido al portfolio de Dovus-V</h1>
+        <img class="logo-estatico" src="imgs\Logo_M_2025_azul.png" />
+        <h1 class="titulo-grande">
+          Bienvenido al portfolio de Manuel I. de Val
+        </h1>
       </div>
     </div>
     <div id="box"></div>
@@ -42,30 +80,30 @@
 
     <!-- Menú -->
     <div class="menu" id="menu">
-      <a href="#">Dovus-V</a>
-      <a href="#">Dibujo</a>
-      <a href="#">Ilustración digital</a>
-      <a href="#">Maquetación</a>
-      <a href="#">Motion graphics</a>
+      <a href="#Landing">Bienvenido</a>
+      <a href="#About">Quién soy</a>
+      <a href="#Areas">Áreas creativas</a>
+      <a href="#Galeria">Galería de proyectos</a>
+      <a href="#Experiencia">Experiencia de trabajo</a>
+      <a href="#Contacto">Ponte en contacto</a>
     </div>
-    <div class="main-container">
+
+    <div class="main-container" id="About">
       <div class="container">
         <div class="border-box"></div>
-
         <div>
-          <h1 class="h1-standard">Dovus-V</h1>
-        </div>
-        <div>
+          <h1 class="logo-fondo">Quién soy</h1>
           <h2 class="texto-grande-r">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Mi nombre es Manuel y soy un creativo multidisciplinar de Madrid,
+            España.
+            <br class="br-small" />
+            Con experiencia en la industria y visión propia en todos mis
+            proyectos, mi trabajo es conocido por su esencia atemporal y su
+            lenguaje visual refinado.
           </h2>
         </div>
       </div>
 
-      <!--<div class="color-filtro-1"></div>-->
       <div class="cortinilla">
         <div class="imagenes">
           <div class="imagen">
@@ -92,12 +130,6 @@
               alt="Imagen 4"
             />
           </div>
-          <div class="imagen">
-            <img
-              src="https://ik.imagekit.io/bnkcab5v4/mockup-1.jpg"
-              alt="Imagen 5"
-            />
-          </div>
           <!-- Duplicamos la primera imagen para que la transición sea seamless -->
           <div class="imagen">
             <img
@@ -109,10 +141,10 @@
       </div>
     </div>
 
-    <div class="main-container">
+    <div class="main-container" id="Areas">
       <div class="container-l-wide">
         <div class="border-box"></div>
-        <h1 class="h1-standard">Areas</h1>
+        <h1 class="h1-standard">Áreas</h1>
         <div class="content">
           <div class="interactive-div">
             <h1 class="h2-animado-1">Diseño</h1>
@@ -125,8 +157,8 @@
           <div class="interactive-div">
             <h1 class="h2-animado-1">Ilustración</h1>
             <p class="descripcion-1">
-              Versátil y pura. De marcado carácter estilístico y orientado a
-              temáticas históricas.
+              Versátil, de marcado carácter estilístico, y orientado a temáticas
+              históricas.
             </p>
           </div>
 
@@ -141,15 +173,15 @@
       </div>
     </div>
 
-    <div class="main-container">
+    <div class="main-container" id="Galeria">
       <div class="container-wide">
         <div class="grid-container">
-          <a href="#" class="grid-item">
+          <a href="proyecto1.html" class="grid-item">
             <img
               src="https://ik.imagekit.io/bnkcab5v4/mockup-3.png?updatedAt=1733750220734"
               alt="Image 1"
             />
-            <h2>Colección de libros troquelados Minnesänger</h2>
+            <h2>Colección de libros troquelados, Schild und Feder</h2>
           </a>
           <a href="#" class="grid-item">
             <img
@@ -163,67 +195,67 @@
               src="https://ik.imagekit.io/bnkcab5v4/IBJQUn1NGS.jpg?updatedAt=1733750560047"
               alt="Image 3"
             />
-            <h2>Colección de libros troquelados Minnesänger</h2>
+            <h2>Branding para Museo del Prado, Tinta Eterna</h2>
           </a>
           <a href="#" class="grid-item">
             <img
               src="https://ik.imagekit.io/bnkcab5v4/gZ8PfVYAPp_cropped.jpg?updatedAt=1733917559728"
               alt="Image 4"
             />
-            <h2>Colección de libros troquelados Minnesänger</h2>
+            <h2>Cartel para la UNESCO, Día de la Vida Silvestre</h2>
           </a>
           <a href="#" class="grid-item">
             <img
               src="https://ik.imagekit.io/bnkcab5v4/muhleim_medieval_2_final.jpg?updatedAt=1733418564234"
               alt="Image 5"
             />
-            <h2>Colección de libros troquelados Minnesänger</h2>
+            <h2>Paisaje concept art para película, Dullness at Dawn</h2>
           </a>
           <a href="#" class="grid-item">
             <img
               src="https://ik.imagekit.io/bnkcab5v4/HpawYaiZjV.jpg?updatedAt=1733752581744"
               alt="Image 6"
             />
-            <h2>Colección de libros troquelados Minnesänger</h2>
+            <h2>Portadas de teatro animadas, Clásicos castellanos</h2>
           </a>
           <a href="#" class="grid-item">
             <img
               src="https://ik.imagekit.io/bnkcab5v4/Captura.JPG?updatedAt=1733750220535"
               alt="Image 7"
             />
-            <h2>Colección de libros troquelados Minnesänger</h2>
+            <h2>Artículo web ilustrado para Iberia, Vuelos a Japón</h2>
           </a>
           <a href="#" class="grid-item">
             <img
               src="https://ik.imagekit.io/bnkcab5v4/2479cad2-a537-4d8c-ad50-ccd1fe88f1c6.jpg?updatedAt=1733750220617"
               alt="Image 8"
             />
-            <h2>Colección de libros troquelados Minnesänger</h2>
+            <h2>Estudio de armadura S.XVI, Varias partes</h2>
           </a>
           <a href="#" class="grid-item">
             <img
               src="https://ik.imagekit.io/bnkcab5v4/image.png?updatedAt=1733752733121"
               alt="Image 9"
             />
-            <h2>Colección de libros troquelados Minnesänger</h2>
+            <h2>Videolyrics para canción de rock, Say Goodbye</h2>
           </a>
         </div>
       </div>
 
-      <div class="main-container">
+      <div class="main-container" id="Experiencia">
         <div class="container-l-wide">
           <div class="border-box"></div>
           <h1 class="h1-standard">Experiencia</h1>
           <div class="content">
             <div class="interactive-div">
-              <h1 class="h2-animado-1">Maquetación</h1>
+              <h1 class="h2-animado-1">ABC/Turium</h1>
               <p class="descripcion-1">
                 De estilo clásico y directo. Orientado a proyectos digitales con
                 autenticidad.
               </p>
             </div>
             <div class="interactive-div">
-              <h1 class="h2-animado-1">Grapher E-Sports</h1>
+              <h1 class="h2-animado-1">Native E-Sports</h1>
               <p class="descripcion-1">
                 De estilo clásico y directo. Orientado a proyectos digitales con
                 autenticidad.
@@ -248,106 +280,165 @@
       </div>
     </div>
 
-    <div class="main-container">
+    <div class="main-container-invert-order">
       <div class="cortinilla">
-        <div class="contents-box-img-vid">
-          <div
-            style="
-              position: relative;
-              width: 100%;
-              height: 100vh;
-              overflow: hidden;
-            "
-          >
-            <iframe
-              src="https://www.youtube.com/embed/qNVZ1JBwLHA?autoplay=1&controls=0&mute=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&loop=1&playlist=qNVZ1JBwLHA&fs=0&quality=high"
-              title="Say Goodbye - 25fps/1440p"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              style="
-                position: absolute;
-                top: -50px;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                pointer-events: none;
-                transform: scale(1.6);
-              "
-            ></iframe>
+        <div class="imagenes">
+          <div class="imagen">
+            <img
+              src="https://ik.imagekit.io/bnkcab5v4/mossom-carteles-posters.png?updatedAt=1733663220520"
+              alt="Image 1"
+            />
           </div>
         </div>
       </div>
       <div class="container">
         <div class="border-box"></div>
-
-        <h1 class="logo-fondo">Motion Graphics</h1>
-      </div>
-      <div class="main-container">
-        <div class="form-container">
-          <div class="border-box"></div>
-          <h1 class="h1-standard">Formulario de Contacto</h1>
-          <form action="/enviar-formulario" method="POST">
-            <!-- Primera fila -->
-            <div class="form-group">
-              <label for="nombre">Nombre</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                required
-                placeholder="Escribe tu nombre"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="correo">E-Mail</label>
-              <input
-                type="email"
-                id="correo"
-                name="correo"
-                required
-                placeholder="Escribe tu correo"
-              />
-            </div>
-
-            <!-- Segunda fila -->
-            <div class="form-group">
-              <label for="categoria">Selecciona una categoría:</label>
-              <select id="categoria" name="categoria" required>
-                <option value="" disabled selected>
-                  Selecciona una categoría
-                </option>
-                <option value="soporte">Maquetación editorial</option>
-                <option value="consultas">Maquetación digital</option>
-                <option value="colaboraciones">
-                  Motion graphics tipográfico
-                </option>
-                <option value="colaboraciones">Edición creativa</option>
-                <option value="colaboraciones">Ilustración</option>
-                <option value="colaboraciones">Ilustración histórica</option>
-                <option value="colaboraciones">Otros servicios</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="mensaje">Mensaje:</label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                required
-                placeholder="Escribe tu mensaje aquí"
-              ></textarea>
-            </div>
-          </form>
-          <button type="submit">Enviar</button>
+        <div>
+          <h1 class="logo-fondo">Diseño</h1>
+          <h2 class="texto-grande-r">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </h2>
         </div>
       </div>
-
-      <!--<div class="color-filtro-1"></div>-->
     </div>
+
+    <div class="main-container">
+      <div class="container">
+        <div class="border-box"></div>
+        <h1 class="logo-fondo">Ilustración</h1>
+        <h2 class="texto-grande-r">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </h2>
+      </div>
+      <div class="cortinilla">
+        <div class="imagen">
+          <img
+            src="https://ik.imagekit.io/bnkcab5v4/tamborilero_sombrero_final.jpg?updatedAt=1736353901394"
+            alt="Image 1"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="main-container-invert-order">
+      <div class="cortinilla">
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/qNVZ1JBwLHA?autoplay=1&controls=0&mute=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&loop=1&playlist=qNVZ1JBwLHA&fs=0&quality=high"
+            title="Say Goodbye - 25fps/1440p"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <div class="container">
+        <div class="border-box"></div>
+        <h1 class="logo-fondo">Motion Graphics</h1>
+        <h2 class="texto-grande-r">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </h2>
+      </div>
+    </div>
+    <div class="main-container">
+      <div class="form-container">
+        <div class="border-box"></div>
+        <h1 class="h1-standard">Formulario de Contacto</h1>
+        <form action="/enviar-formulario" method="POST">
+          <!-- Primera fila -->
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              required
+              placeholder="Escribe tu nombre"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="correo">E-Mail</label>
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              required
+              placeholder="Escribe tu correo"
+            />
+          </div>
+
+          <!-- Segunda fila -->
+          <div class="form-group">
+            <label for="categoria">Selecciona una categoría:</label>
+            <select id="categoria" name="categoria" required>
+              <option value="" disabled selected>
+                Selecciona una categoría
+              </option>
+              <option value="soporte">Maquetación editorial</option>
+              <option value="consultas">Maquetación digital</option>
+              <option value="colaboraciones">
+                Motion graphics tipográfico
+              </option>
+              <option value="colaboraciones">Edición creativa</option>
+              <option value="colaboraciones">Ilustración</option>
+              <option value="colaboraciones">Ilustración histórica</option>
+              <option value="colaboraciones">Otros servicios</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="Contacto">
+            <label for="mensaje">Mensaje:</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              required
+              placeholder="Escribe tu mensaje aquí"
+            ></textarea>
+          </div>
+        </form>
+        <button type="submit">Enviar</button>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section links">
+          <h2>Enlaces Rápidos</h2>
+          <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#portfolio">Portafolio</a></li>
+            <li><a href="#contact">Contacto</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#privacy">Política de Privacidad</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section links">
+          <h2>Sígueme en redes</h2>
+          <ul>
+            <li><a href="#instagram">Instagram</a></li>
+            <li><a href="#youtube">YouTube</a></li>
+            <li><a href="#x-twitter">X</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Manuel Iglesias de Val. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText.min.js"></script>
