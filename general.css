@@ -1,31 +1,4 @@
 @import url("fonts.css");
-@font-face {
-  font-family: "Denton";
-  font-style: normal;
-  font-weight: 300; /* Light */
-  src: url("imgs/DENTON-LIGHT.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Denton";
-  font-style: italic;
-  font-weight: 300; /* Light Italic */
-  src: url("imgs/DENTON-LIGHTITALIC.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Denton";
-  font-style: normal;
-  font-weight: 400; /* Regular */
-  src: url("imgs/DENTON-REGULAR.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Denton";
-  font-style: italic;
-  font-weight: 400; /* Regular Italic */
-  src: url("imgs/DENTON-REGULARITALIC.woff2") format("woff2");
-}
 
 body {
   display: flex;
@@ -33,59 +6,24 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Albert Sans";
-  height: auto; /* Asegura que el body ocupe toda la altura */
-  overflow: auto; /* Para evitar desplazamiento innecesario */
-  flex-direction: column; /* Alinea los elementos de forma horizontal */
+  height: auto;
+  overflow: auto;
+  flex-direction: column;
 }
 
 .br-small {
   content: " ";
   display: block;
-  height: 25px; /* Adds vertical space */
+  height: 25px;
 }
 
-/* Estilo del contenedor */
-.placeholder {
-  height: fit-content;
-  width: fit-content;
-  position: fixed;
-  position: fixed; /* Asegura que la posición sea relativa a la ventana */
-  top: 50%; /* Centra verticalmente */
-  right: 0; /* Posición fuera de la pantalla a la derecha */
-  transform: translate(120%, -50%); /* Posición inicial fuera de la pantalla */
-  transition: transform 0.5s ease-in-out; /* Transición suave */
-  z-index: 30;
-}
-
-.placeholder img {
-  width: 45%;
-  height: auto;
-  z-index: inherit;
-}
-
-.logo {
-  font-family: "Denton", sans-serif !important; /* Fuente */
-  font-size: clamp(
-    4.5rem,
-    2.143rem + 7.619vw,
-    8rem
-  ) !important; /* Tamaño del texto */
-  font-style: normal !important; /* Texto en negrita */
-  font-weight: 300;
-  color: #062324; /* Color del texto */
-  margin: 150px; /* Espaciado interno */
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-  overflow: hidden; /* Opcional: oculta cualquier contenido que se salga del contenedor */
-  text-overflow: ellipsis; /* Opcional: muestra "..." si el texto es demasiado largo */
-}
-
-.logo-fondo {
-  font-family: "Denton", sans-serif !important; /* Fuente */
+.titulo-section {
+  font-family: "Denton", sans-serif !important;
   font-weight: 300 !important;
   font-style: italic !important;
-  font-size: clamp(1.7em, 5.2vw, 15em);
+  font-size: clamp(1.8em, 5.2vw, 15em);
   color: #577e80;
-  user-select: none; /* Impide la selección de texto */
+  user-select: none;
   position: relative;
   text-align: center;
   justify-self: center;
@@ -97,30 +35,30 @@ body {
 }
 
 .logo-estatico {
-  width: 105px;
-  height: 105px;
-  margin: 15px;
+  width: 120px;
+  height: auto;
+  margin: 10px;
 }
 
 .main-container {
   display: flex;
-  flex-direction: row; /* Los elementos estarán en fila por defecto */
+  flex-direction: row;
   width: 100%;
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  flex-wrap: wrap;
 }
 
 .main-container-invert-order {
   display: flex;
-  flex-direction: row; /* Los elementos estarán en fila por defecto */
+  flex-direction: row;
   width: 100%;
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  flex-wrap: wrap;
 }
 
-/* Caja principal Left */
+/* Caja ancha principal (Textos pequeños) */
 .container {
   position: relative;
-  width: 50%; /* Ocupa el 100% del de la pantalla */
-  height: 90vh; /* Ajusta la altura según lo necesario */
+  width: 50%;
+  height: 90vh;
   background-color: rgb(243, 243, 243);
   display: flex;
   flex-direction: column;
@@ -131,9 +69,9 @@ body {
 
 .container-full {
   position: relative;
-  width: 100%; /* Ocupa el 100% del ancho de la pantalla */
-  height: 100vh; /* Ajusta la altura según lo necesario */
-  background-color: rgb(243, 243, 243); /* Fondo azul claro */
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(243, 243, 243);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,12 +81,12 @@ body {
   top: 0;
 }
 
-/* Caja principal Left */
-.container-wide {
+/* Caja alta principal (Galería) */
+.container-alto {
   position: relative;
-  width: 100%; /* Ocupa el 100% del ancho de la pantalla */
-  height: 75vh; /* Ajusta la altura según lo necesario */
-  background-color: #577e80; /* Fondo azul claro */
+  width: 100%;
+  height: 75vh;
+  background-color: #577e80;
   display: flex;
   justify-items: center;
   align-items: center;
@@ -159,11 +97,11 @@ body {
 }
 
 /* Caja principal Right */
-.container-l-wide {
+.container-ancho {
   position: relative;
-  width: 100%; /* Ocupa el 100% del ancho de la pantalla */
-  height: 60vh; /* Ajusta la altura según lo necesario */
-  background-color: rgb(243, 243, 243); /* Fondo azul claro */
+  width: 100%;
+  height: 60vh;
+  background-color: rgb(243, 243, 243);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,31 +110,7 @@ body {
   top: 0;
 }
 
-/* Estilo para los párrafos alternados */
-.texto-alternado {
-  font-family: "Denton", sans-serif !important;
-  font-weight: 300;
-  line-height: 120%;
-  font-size: clamp(1.4em, 3.2vw, 1.8em);
-  color: #3e4047;
-  user-select: none;
-  position: relative;
-  text-align: center;
-  width: 100%; /* Ajustado al ancho del contenedor */
-  margin: 20px 0; /* Espaciado entre textos */
-  opacity: 0; /* Invisible al inicio (controlado por GSAP) */
-}
-
-/* Estilo para alternar la posición arriba y abajo */
-.texto-alternado:nth-child(odd) {
-  transform: translateY(-75%); /* Mueve los elementos impares hacia arriba */
-}
-
-.texto-alternado:nth-child(even) {
-  transform: translateY(75%); /* Mueve los elementos pares hacia abajo */
-}
-
-/* Borde cuadrado en el centro */
+/* Borde caja */
 .border-box {
   width: calc(100% - 30px);
   height: calc(100% - 30px);
@@ -217,19 +131,19 @@ body {
   z-index: 30;
 }
 
-/* Contenedor principal */
+/* Contenedor neutro */
 .content {
-  display: flex; /* Flexbox para alinear los spans en hilera por defecto */
-  align-items: start; /* Alinea los spans verticalmente en el centro */
+  display: flex;
+  align-items: start;
   color: #333333;
-  flex-wrap: nowrap; /* Evita que los spans se rompan en varias líneas */
+  flex-wrap: nowrap;
   margin: 60px;
 }
 
-.interactive-div {
-  display: flex; /* Activar flexbox */
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
+.div-parallax {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   margin-right: 125px;
   margin-left: 125px;
@@ -246,35 +160,34 @@ body {
   font-size: clamp(2.5em, 5vw, 5em);
   color: #577e80;
   letter-spacing: 2px;
-  display: inline-block; /* Aseguramos que el texto se comporta como bloque */
-  overflow: hidden; /* Escondemos cualquier exceso durante la animación */
+  display: inline-block;
+  overflow: hidden;
   width: 90vw;
   white-space: nowrap;
 }
 
-/* Estilo del texto */
-.h2-animado-1 {
+.h2-animado {
   font-family: "Denton" !important;
   line-height: 200%;
   font-weight: 300;
   font-style: normal !important;
   font-size: clamp(1.2em, 4.5vw, 2em);
   color: #3e4047;
-  user-select: none; /* Impide la selección de texto */
+  user-select: none;
   position: relative;
-  transform-origin: center center; /* Punto de rotación */
+  transform-origin: center center;
   text-align: center;
   align-self: center;
   margin-bottom: 120px;
   opacity: 0;
   white-space: nowrap;
 }
-.texto-grande-r {
+.parrafo-grande {
   font-family: "Denton" !important;
   font-weight: 100 !important;
   font-style: normal !important;
   line-height: 120%;
-  font-size: clamp(1.4em, 3.2vw, 1.3em);
+  font-size: clamp(1.2em, 3.2vw, 1.5em);
   color: #3e4047;
   position: relative;
   text-align: center;
@@ -284,14 +197,13 @@ body {
   height: auto;
 }
 
-/* Estilo del texto */
 .h1-standard {
   font-family: "Denton" !important;
   font-weight: 300 !important;
   font-style: bold !important;
-  font-size: clamp(1.4em, 2.5vw, 5.5em);
+  font-size: clamp(1.3em, 2.5vw, 5.5em);
   color: #577e80;
-  user-select: none; /* Impide la selección de texto */
+  user-select: none;
   position: absolute;
   text-align: center;
   align-self: center;
@@ -313,12 +225,12 @@ body {
   pointer-events: none; /* Evita interacción mientras esté oculto */
   transition: opacity 0.3s ease;
   position: absolute;
-  margin: 0; /* Elimina márgenes por defecto */
+  margin: 0;
   display: block;
   width: 300px;
-  justify-content: center; /* Centers text horizontally */
+  justify-content: center;
   text-align: center;
-  user-select: none; /* Impide la selección de texto */
+  user-select: none;
   margin-top: 125px;
 }
 /* Estilo del botón de hamburguesa */
@@ -340,7 +252,7 @@ body {
   width: 30px;
   height: 3px;
   background-color: #062324;
-  transform-origin: center center; /* El origen de la transformación es el borde izquierdo */
+  transform-origin: center center;
   transition: width 0.5s ease-in-out;
 }
 
@@ -367,11 +279,7 @@ body {
   font-weight: 300 !important;
   text-decoration: none;
   color: black;
-  font-size: clamp(
-    2rem,
-    1vw + 1rem,
-    5em
-  ); /* Ajuste de tamaño de fuente adaptable */
+  font-size: clamp(2rem, 1vw + 1rem, 5em);
   margin: 15px 0;
   margin-top: 50px;
   font-weight: bold;
@@ -386,25 +294,13 @@ body {
   right: 0;
 }
 
-.color-filtro-1 {
-  z-index: 0;
-  width: 50%; /* Mitad derecha de la pantalla */
-  height: 100vh; /* Toda la altura del viewport */
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-color: rgb(153, 153, 153);
-  mix-blend-mode: color;
-}
-
 .cortinilla {
   z-index: -5;
-  width: 50%; /* Mitad derecha de la pantalla */
-  height: 0.1vh; /* Toda la altura del viewport */
+  width: 50%;
+  height: 0.1vh;
   overflow: hidden;
   position: relative;
-  transition: all 0.3s ease; /* Suaviza la transición al cambiar de posición */
+  transition: all 0.3s ease;
 }
 
 .imagenes {
@@ -475,21 +371,21 @@ body {
   margin-left: 3px;
 }
 
-/* Grid container */
+/* Grid container (Galería)*/
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Dos columnas de igual tamaño */
-  grid-template-rows: repeat(3, auto); /* Cinco filas con altura automática */
-  width: calc(100% - 30px); /* Ancho del contenedor */
-  height: auto; /* Altura dinámica según el contenido */
-  justify-content: center; /* Centra los elementos horizontalmente */
-  align-items: center; /* Centra los elementos verticalmente */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  width: calc(100% - 30px);
+  height: auto;
+  justify-content: center;
+  align-items: center;
   z-index: 40;
   box-sizing: border-box; /* Asegura que el padding no afecte al tamaño total */
   gap: 1px;
 }
 
-/* Grid items */
+/* Grid items (Contenedor imágenes galería) */
 .grid-item {
   display: flex;
   justify-content: center;
@@ -497,18 +393,17 @@ body {
   overflow: hidden;
   transition: transform 0.3s ease;
   text-decoration: none;
-  width: auto; /* Se ajusta a la celda del grid */
-  height: 0.5vh; /* Se ajusta dinámicamente */
-  opacity: 1; /* Asegura que sea visible */
+  width: auto;
+  height: 0.5vh;
+  opacity: 1;
   z-index: 50;
 }
 
-/* Imágenes */
 .grid-item img {
-  width: auto; /* Ancho fijo */
-  height: 65vh; /* Mantiene la proporción */
-  transition: transform 0.3s ease; /* Animación de escala */
-  object-fit: cover; /* Las imágenes ocuparán todo el espacio */
+  width: auto;
+  height: 65vh;
+  transition: transform 0.3s ease;
+  object-fit: cover;
   overflow: clip;
   z-index: 30;
   mix-blend-mode: multiply;
@@ -522,22 +417,22 @@ body {
   font-size: 0em;
   color: #f5df7c;
   text-align: center;
-  pointer-events: none; /* Impide la interacción del usuario */
+  pointer-events: none;
   opacity: 0; /* Oculto inicialmente */
-  display: flex; /* Centra el contenido dentro del cuadrado */
+  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 50;
-  width: 250px; /* Ancho del cuadrado */
-  height: 150px; /* Alto del cuadrado, igual al ancho */
-  box-sizing: content-box; /* Asegura que padding y border no afecten el tamaño */
+  width: 250px;
+  height: 150px;
+  box-sizing: content-box;
   padding: 60px;
 }
 .form-container {
   position: relative;
-  width: 100%; /* Ocupa el 100% del ancho de la pantalla */
-  height: 70vh; /* Ajusta la altura según lo necesario */
-  background-color: rgb(243, 243, 243); /* Fondo azul claro */
+  width: 100%;
+  height: 70vh;
+  background-color: rgb(243, 243, 243);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -550,9 +445,9 @@ body {
 
 form {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
-  gap: 40px; /* Espacio entre los elementos */
-  width: 80%; /* Ajusta el ancho del formulario */
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 80%;
   z-index: inherit;
   margin-top: 75px;
 }
@@ -605,7 +500,7 @@ button {
   color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
-  z-index: inherit; /* Asegura que el botón esté por encima de otros elementos */
+  z-index: inherit;
   margin-top: 25px;
 }
 
@@ -631,7 +526,7 @@ button:hover {
   transform: scale(1.65);
 }
 
-/* General Footer Styles */
+/* Estilos footer */
 .footer {
   background-color: #0e0e0f;
   color: #f5f5f5;
@@ -710,30 +605,29 @@ button:hover {
 /* Breakpoint para pantallas medianas */
 @media (max-width: 1400px) {
   body {
-    flex-direction: column; /* Cambia la dirección a columna */
+    flex-direction: column;
   }
 
   .container,
-  .container-l,
-  .container-l-wide,
+  .container-ancho,
   .cortinilla {
-    width: 100%; /* Ocupa todo el ancho de la pantalla */
-    height: 80vh; /* Ajusta la altura según el contenido */
+    width: 100%;
+    height: 80vh;
   }
 
   .menu {
-    width: 100%; /* Ocupa el 100% de la pantalla */
-    right: -100%; /* Inicialmente fuera de la pantalla */
+    width: 100%;
+    right: -100%;
     transition: right 0.3s ease;
   }
   .menu.open {
-    right: 0; /* Muestra el menú al abrirlo */
+    right: 0;
   }
   .content {
-    flex-direction: column; /* Cambia la dirección a vertical */
+    flex-direction: column;
     gap: 35px;
   }
-  .interactive-div {
+  .div-parallax {
     height: 100px;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -742,45 +636,47 @@ button:hover {
     margin-bottom: 220px;
     margin-top: 135px;
   }
-  .texto-grande-r {
+  .parrafo-grande {
     width: 60vw;
     text-align: center;
     align-self: center;
   }
 
-  .logo-fondo {
+  .titulo-section {
     text-align: center;
   }
 
   .main-container-invert-order {
-    flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
+    flex-direction: column;
   }
   .main-container-invert-order > div.content {
-    order: 1; /* Cambia a columna en pantallas más pequeñas */
+    order: 1;
   }
 
   .main-container-invert-order > div.cortinilla {
-    order: 2; /* Cambia a columna en pantallas más pequeñas */
+    order: 2;
   }
   .form-container {
     height: 85vh;
   }
 }
 
+/* Breakpoint para pantallas pequeñas */
+
 @media (max-width: 1024px) {
-  .container-l-wide {
+  .container-ancho {
     flex-direction: column;
     display: flex;
     height: 110vh;
   }
 
   .content {
-    flex-direction: column; /* Cambia la dirección a vertical */
+    flex-direction: column;
     margin-top: 250px;
     gap: 54px;
   }
 
-  .interactive-div {
+  .div-parallax {
     height: 32px;
     margin-bottom: 25px;
     margin-top: 10px;
@@ -812,7 +708,7 @@ button:hover {
   }
   form {
     margin-top: 100px;
-    grid-template-columns: 1fr; /* Dos columnas de igual tamaño */
+    grid-template-columns: 1fr;
   }
   .footer {
     flex-direction: column !important;
@@ -830,8 +726,10 @@ button:hover {
   }
 }
 
+/* Breakpoint para pantallas Landscape */
+
 @media only screen and (orientation: landscape) and (max-width: 1400px) {
-  .interactive-div {
+  .div-parallax {
     margin-top: 15px;
     margin-bottom: 40px;
     height: 25px;
@@ -849,7 +747,7 @@ button:hover {
   .form-container {
     height: 140vh;
   }
-  .texto-grande-r {
+  .parrafo-grande {
     margin-top: -15px;
     align-self: center;
     left: 0;
