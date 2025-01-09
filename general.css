@@ -83,7 +83,7 @@ body {
   font-family: "Denton", sans-serif !important; /* Fuente */
   font-weight: 300 !important;
   font-style: italic !important;
-  font-size: clamp(2em, 5.2vw, 15em);
+  font-size: clamp(1.7em, 5.2vw, 15em);
   color: #577e80;
   user-select: none; /* Impide la selección de texto */
   position: relative;
@@ -274,7 +274,7 @@ body {
   font-weight: 100 !important;
   font-style: normal !important;
   line-height: 120%;
-  font-size: clamp(1.4em, 3.2vw, 1.8em);
+  font-size: clamp(1.4em, 3.2vw, 1.3em);
   color: #3e4047;
   position: relative;
   text-align: center;
@@ -289,7 +289,7 @@ body {
   font-family: "Denton" !important;
   font-weight: 300 !important;
   font-style: bold !important;
-  font-size: clamp(1.4em, 2.5vw, 6.5em);
+  font-size: clamp(1.4em, 2.5vw, 5.5em);
   color: #577e80;
   user-select: none; /* Impide la selección de texto */
   position: absolute;
@@ -671,11 +671,12 @@ button:hover {
 
 .footer-section h2 {
   font-family: "Denton" !important;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 15px;
   color: #577e80;
   padding: 0;
   margin: 0;
+  white-space: nowrap;
 }
 
 .footer-section p {
@@ -798,7 +799,6 @@ button:hover {
   .titulo-grande {
     text-align: center;
     white-space: normal;
-    width: 60vw;
   }
   .video-container {
     width: 100%;
@@ -832,20 +832,27 @@ button:hover {
 
 @media only screen and (orientation: landscape) and (max-width: 1400px) {
   .interactive-div {
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    height: 25px;
   }
   .descripcion-1 {
     margin-bottom: 240px;
     width: 400px;
   }
   .container-l-wide {
-    height: 145vh;
+    height: 185vh;
   }
   .container {
-    height: 100vh;
+    height: 125vh;
   }
   .form-container {
     height: 140vh;
+  }
+  .texto-grande-r {
+    margin-top: -15px;
+    align-self: center;
+    left: 0;
+    right: 0;
   }
 }
