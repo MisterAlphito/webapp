@@ -1,3 +1,2 @@
-You can view the live site at:
-
-https://misteralphito.github.io/webapp/
+## You can view the live site at:
+## https://misteralphito.github.io/webapp/
